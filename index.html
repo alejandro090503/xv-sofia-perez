@@ -783,6 +783,41 @@ footer .fd{
   100%{box-shadow:0 0 0 0 rgba(26,122,88,0);}
 }
 .music-fab svg{width:24px;height:24px;}
+
+/* ALBUM QR */
+#salbum{padding:60px 24px 20px;text-align:center;}
+.album-qr-wrap{display:flex;justify-content:center;padding:10px 0 20px;}
+.album-qr-card{
+  background:rgba(255,255,255,0.88);
+  border:1px solid rgba(26,122,88,0.18);
+  border-radius:28px;
+  padding:32px 28px 28px;
+  max-width:320px;width:100%;
+  box-shadow:0 8px 40px rgba(15,77,54,0.10);
+  display:flex;flex-direction:column;align-items:center;gap:18px;
+}
+.album-qr-desc{
+  font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--text);
+  opacity:0.80;line-height:1.55;text-align:center;margin:0;
+}
+.album-qr-frame{
+  background:var(--bg);border-radius:16px;padding:14px;
+  border:1.5px solid rgba(26,122,88,0.20);
+  box-shadow:0 2px 16px rgba(15,77,54,0.08);
+}
+.album-qr-frame img{display:block;border-radius:8px;}
+.album-qr-hint{
+  font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:1px;
+  color:rgba(10,42,26,0.55);text-align:center;margin:0;line-height:1.6;
+}
+.album-qr-btn{
+  display:inline-block;padding:13px 36px;
+  background:linear-gradient(135deg,#1A7A58,#0F4D36);
+  color:#fff;font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:3px;
+  text-transform:uppercase;text-decoration:none;border-radius:40px;
+  box-shadow:0 4px 20px rgba(15,77,54,0.25);transition:opacity .2s;
+}
+.album-qr-btn:hover{opacity:0.88;}
 </style>
 </head>
 <body>
@@ -1074,6 +1109,27 @@ footer .fd{
         </svg>
       </div>
 
+      <div class="fam2-group rv">
+        <div class="fam2-medallion">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="fam2-role">Mi Hermano</div>
+        <div class="fam2-names">
+          &Aacute;ngel Omar P&eacute;rez L&oacute;pez
+        </div>
+      </div>
+
+      <div class="fam2-divider rv">
+        <svg viewBox="0 0 100 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="13" x2="32" y2="13" stroke="#1A7A58" stroke-width="0.7" opacity="0.32"/>
+          <path d="M32 13 Q38 5 44 13" stroke="#1A7A58" stroke-width="0.8" fill="none" opacity="0.44"/>
+          <path d="M50 4 L57 13 L50 22 L43 13 Z" fill="rgba(26,122,88,0.10)" stroke="#1A7A58" stroke-width="0.9" opacity="0.48"/>
+          <circle cx="50" cy="13" r="3" fill="rgba(109,184,150,0.22)" stroke="#1A7A58" stroke-width="0.6" opacity="0.55"/>
+          <path d="M56 13 Q62 5 68 13" stroke="#1A7A58" stroke-width="0.8" fill="none" opacity="0.44"/>
+          <line x1="68" y1="13" x2="100" y2="13" stroke="#1A7A58" stroke-width="0.7" opacity="0.32"/>
+        </svg>
+      </div>
+
       <div class="fam2-group rv" style="border-top:none;">
         <div class="fam2-medallion" style="background:linear-gradient(135deg,rgba(123,196,160,0.14),rgba(184,224,203,0.26));border-color:rgba(123,196,160,0.32);">
           <svg viewBox="0 0 24 24" style="stroke:#2D9E6C"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -1235,6 +1291,26 @@ footer .fd{
       <line x1="212" y1="23" x2="300" y2="23" stroke="#1A7A58" stroke-width="0.38" opacity="0.16"/>
     </svg>
   </div>
+
+  <!-- ALBUM QR -->
+  <section class="rv" id="salbum">
+    <div class="eyebrow eyebrow-rosa">Comparte tus Fotos</div>
+    <h2 class="sec-title">Álbum Colaborativo</h2>
+    <div class="album-qr-wrap">
+      <div class="album-qr-card">
+        <p class="album-qr-desc">¡Sube tus fotos y videos de la noche y forma parte del recuerdo!</p>
+        <div class="album-qr-frame">
+          <img id="albumQrImg"
+            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&color=0F4D36&bgcolor=EDF8F3&qzone=2&data=ALBUM_URL"
+            alt="QR Álbum de Fotos" width="200" height="200">
+        </div>
+        <p class="album-qr-hint">Escanea el código QR<br>con la cámara de tu celular</p>
+        <a class="album-qr-btn" id="albumQrLink" href="ALBUM_URL" target="_blank" rel="noopener">
+          Abrir Álbum
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- RSVP -->
   <section class="rv" id="srsvp">
