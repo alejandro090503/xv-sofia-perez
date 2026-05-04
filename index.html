@@ -722,7 +722,7 @@ section{padding:64px 26px;}
 }
 .rsvp-name-row input{flex:1;}
 .rsvp-success{
-  visibility:hidden;opacity:0;text-align:center;padding:18px 0 6px;
+  display:none;opacity:0;text-align:center;padding:18px 0 6px;
 }
 .rsvp-error{
   min-height:18px;font-family:'Lato',sans-serif;font-size:12px;
@@ -1519,7 +1519,7 @@ function copyAccount(){
       wrap2.style.display='none';
       btn.style.display='none';
       bdg.style.display='none';
-      gsap.set(suc,{autoAlpha:1});
+      suc.style.display='block';
       gsap.fromTo(suc,{opacity:0,y:18},{opacity:1,y:0,duration:0.7,ease:'back.out(1.2)'});
     }});
   }
