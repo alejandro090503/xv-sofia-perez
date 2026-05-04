@@ -444,6 +444,38 @@ section{padding:64px 26px;}
   letter-spacing:5px;text-transform:uppercase;
   color:rgba(109,184,150,0.70);text-align:center;margin-bottom:22px;position:relative;
 }
+.dc2-options{
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;margin-bottom:20px;position:relative;flex-wrap:wrap;
+}
+.dc2-option{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(109,184,150,0.22);
+  border-radius:18px;padding:20px 22px 16px;min-width:130px;
+}
+.dc2-option-icon{
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(26,122,88,0.20);
+  display:flex;align-items:center;justify-content:center;
+}
+.dc2-option-icon svg{width:24px;height:24px;stroke:rgba(109,184,150,0.90);}
+.dc2-option-label{
+  font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;
+  letter-spacing:3px;text-transform:uppercase;color:#fff;
+}
+.dc2-option-desc{
+  font-family:'Cormorant Garamond',serif;font-size:12px;
+  color:rgba(109,184,150,0.60);letter-spacing:1px;text-align:center;
+}
+.dc2-option-sep{
+  font-size:28px;color:rgba(109,184,150,0.30);font-family:'Cormorant Garamond',serif;
+  align-self:center;
+}
+.dc2-note{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;
+  color:rgba(109,184,150,0.50);letter-spacing:1.5px;text-align:center;
+  position:relative;padding-top:4px;
+}
 .dc2-strip{
   display:flex;height:5px;border-radius:3px;overflow:hidden;margin-bottom:26px;
   box-shadow:0 2px 10px rgba(0,0,0,0.35);position:relative;
@@ -1104,7 +1136,34 @@ footer .fd{
     <div class="dc2-wrap">
       <div class="dc2-eyebrow">Etiqueta</div>
       <div class="dc2-title">Dress Code</div>
-      <div class="dc2-formal">Formal</div>
+      <div class="dc2-options">
+        <div class="dc2-option">
+          <div class="dc2-option-icon">
+            <!-- Traje formal / corbata -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L8 6l1 3-1 1 4 12 4-12-1-1 1-3z"/>
+              <path d="M8 6H5l-2 5h4"/>
+              <path d="M16 6h3l2 5h-4"/>
+            </svg>
+          </div>
+          <div class="dc2-option-label">Formal</div>
+          <div class="dc2-option-desc">Vestido de noche · Traje y corbata</div>
+        </div>
+        <div class="dc2-option-sep">·</div>
+        <div class="dc2-option">
+          <div class="dc2-option-icon">
+            <!-- Traje de baño -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 8c2-3 6-3 8 0s6 3 8 0"/>
+              <path d="M4 8v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/>
+              <path d="M12 8v12"/>
+            </svg>
+          </div>
+          <div class="dc2-option-label">Traje de Ba&ntilde;o</div>
+          <div class="dc2-option-desc">¡La alberca te espera!</div>
+        </div>
+      </div>
+      <div class="dc2-note">La fiesta tiene alberca — ven preparado para disfrutarla</div>
     </div>
   </section>
 
