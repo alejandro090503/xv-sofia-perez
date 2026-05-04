@@ -40,40 +40,53 @@ body{
   background-position:0 0, 50px 50px;
 }
 
-/* ENVELOPE SCREEN */
+/* SPLASH SCREEN (temporal — sin sobre ni video) */
 #envelope-screen{
   position:fixed;inset:0;z-index:10000;overflow:hidden;cursor:pointer;
-  background:#edf7f1 url('https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/assets/sobre.png') center/contain no-repeat;
-  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
-  padding-bottom:60px;
+  background:linear-gradient(160deg,#0F2318 0%,#1A3D28 50%,#0F2318 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0;opacity:0;
+}
+#splash-monogram{
+  font-family:'Great Vibes',cursive;font-size:130px;line-height:1;
+  background:linear-gradient(135deg,#5A9E76,#A8D4B5 50%,#5A9E76);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 4px 32px rgba(90,158,118,0.55));
+  opacity:0;transform:scale(0.88);
+}
+#splash-name{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:15px;letter-spacing:8px;text-transform:uppercase;
+  color:rgba(168,212,181,0.65);margin-top:6px;
+  opacity:0;
+}
+#splash-line{
+  width:60px;height:1px;margin:22px auto 20px;
+  background:linear-gradient(90deg,transparent,#5A9E76,transparent);
   opacity:0;
 }
 .envelope-hint{
   font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:8px;text-transform:uppercase;
-  color:rgba(30,80,50,0.88);opacity:0;cursor:pointer;white-space:nowrap;z-index:10;
+  color:rgba(168,212,181,0.80);opacity:0;cursor:pointer;white-space:nowrap;z-index:10;
   padding:14px 40px;
-  background:rgba(255,255,255,0.72);
-  border:1px solid rgba(90,158,118,0.35);
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(90,158,118,0.30);
   border-radius:40px;
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  box-shadow:0 6px 28px rgba(58,117,85,0.15);
   overflow:hidden;position:relative;
   animation:hintFloat 3.2s ease-in-out infinite;
 }
 .envelope-hint::before{
   content:'';position:absolute;top:0;left:-130%;
   width:75%;height:100%;
-  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,0.5) 50%,rgba(255,255,255,0.3) 56%,transparent 72%);
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,0.12) 50%,rgba(255,255,255,0.06) 56%,transparent 72%);
   animation:shimmerSweep 2.8s ease-in-out infinite;
   pointer-events:none;
 }
 @keyframes shimmerSweep{0%{left:-130%;}55%{left:200%;}100%{left:200%;}}
 @keyframes hintFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
-/* VIDEO apertura */
-#env-video{
-  position:fixed;inset:0;z-index:10001;width:100%;height:100%;
-  object-fit:cover;background:#edf7f1;display:none;
-}
+/* VIDEO — deshabilitado temporalmente */
+#env-video{display:none;}
 #env-flash{position:fixed;inset:0;background:var(--bg);z-index:9999;opacity:0;pointer-events:none;}
 
 /* LOADER */
@@ -746,13 +759,13 @@ footer .fd{
 </head>
 <body>
 
-<!-- ENVELOPE -->
-<div id="envelope-screen" role="button" aria-label="Toca para abrir tu invitacion">
+<!-- SPLASH (temporal) -->
+<div id="envelope-screen" role="button" aria-label="Toca para ver la invitación">
+  <div id="splash-monogram">AS</div>
+  <div id="splash-name">Ana Sof&iacute;a &middot; XV A&ntilde;os</div>
+  <div id="splash-line"></div>
   <p class="envelope-hint" id="env-hint">Toca para abrir</p>
 </div>
-<video id="env-video" playsinline webkit-playsinline preload="none">
-  <source src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/assets/sobre-apertura.mp4" type="video/mp4">
-</video>
 <div id="env-flash"></div>
 
 <!-- LOADER -->
@@ -1287,17 +1300,21 @@ window.scrollTo(0,0);
 history.scrollRestoration='manual';
 gsap.registerPlugin(ScrollTrigger);
 
-/* ENVELOPE */
+/* SPLASH (temporal — sin sobre ni video) */
 (function(){
   var envScreen=document.getElementById('envelope-screen');
-  var envVideo=document.getElementById('env-video');
   var envFlash=document.getElementById('env-flash');
   var hint=document.getElementById('env-hint');
+  var monogram=document.getElementById('splash-monogram');
+  var name=document.getElementById('splash-name');
+  var line=document.getElementById('splash-line');
   var opened=false;
 
-  gsap.timeline()
-    .to(envScreen,{opacity:1,duration:1.0,ease:'power2.out',delay:0.3})
-    .to(hint,{opacity:1,duration:0.9,ease:'power2.out'},'-=0.4');
+  gsap.timeline({delay:0.3})
+    .to(envScreen,{opacity:1,duration:0.8,ease:'power2.out'})
+    .to(monogram,{opacity:1,scale:1,duration:1.1,ease:'back.out(1.6)'},'-=0.3')
+    .to([name,line],{opacity:1,duration:0.8,ease:'power2.out',stagger:0.12},'-=0.5')
+    .to(hint,{opacity:1,duration:0.7,ease:'power2.out'},'-=0.2');
 
   function revealInvitation(){
     document.querySelector('.wrap').style.visibility='visible';
@@ -1308,29 +1325,14 @@ gsap.registerPlugin(ScrollTrigger);
 
   function openEnvelope(){
     if(opened)return; opened=true;
-    gsap.to(hint,{opacity:0,duration:0.15});
-    gsap.to(envScreen,{opacity:0,duration:0.35,ease:'power2.in',
+    gsap.set(envFlash,{opacity:1});
+    gsap.to(envScreen,{opacity:0,scale:1.04,duration:0.45,ease:'power2.in',
       onComplete:function(){
         envScreen.style.display='none';
-        envVideo.style.display='block';
-        envVideo.play().catch(function(){
-          envVideo.style.display='none';
-          gsap.set(envFlash,{opacity:1});
-          revealInvitation();
-        });
-      }
-    });
-  }
-
-  envVideo.addEventListener('ended',function(){
-    gsap.set(envFlash,{opacity:1});
-    gsap.to(envVideo,{opacity:0,duration:0.4,ease:'power2.in',
-      onComplete:function(){
-        envVideo.style.display='none';
         revealInvitation();
       }
     });
-  });
+  }
 
   envScreen.addEventListener('click',openEnvelope);
   envScreen.addEventListener('touchstart',function(e){e.preventDefault();openEnvelope();},{passive:false});
