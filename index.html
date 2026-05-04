@@ -318,6 +318,25 @@ section{padding:64px 26px;}
 }
 .btn:hover{opacity:.88;transform:translateY(-2px);}
 
+/* LOCATION TOGGLE */
+.loc-toggle-wrap{
+  display:flex;gap:8px;padding:22px 22px 0;
+}
+.loc-tab{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:7px;
+  padding:11px 10px;border-radius:30px;border:1.5px solid rgba(90,158,118,0.28);
+  background:transparent;cursor:pointer;
+  font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:2px;
+  color:rgba(30,51,40,0.55);transition:all .28s ease;
+}
+.loc-tab.active{
+  background:linear-gradient(135deg,#5A9E76,#3A7555);
+  border-color:transparent;color:#fff;
+  box-shadow:0 4px 16px rgba(58,117,85,0.28);
+}
+.loc-tab svg{flex-shrink:0;opacity:.75;}
+.loc-tab.active svg{opacity:1;}
+
 /* CALENDAR */
 .cal-c{text-align:center;}
 .cal-c p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--dark);margin-bottom:18px;}
@@ -887,39 +906,33 @@ footer .fd{
     <h2 class="sec-title rv">Ubicaci&oacute;n</h2>
     <div class="loc1-card rv">
 
-      <div class="loc1-top">
-        <div class="loc1-pin">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        </div>
-        <div class="loc1-venue-name">Durango</div>
-        <div class="loc1-addr">27 de Junio de 2026</div>
+      <!-- Toggle -->
+      <div class="loc-toggle-wrap">
+        <button class="loc-tab active" id="tabCeremonia" onclick="switchVenue('ceremonia')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Ceremonia
+        </button>
+        <button class="loc-tab" id="tabRecepcion" onclick="switchVenue('recepcion')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Recepci&oacute;n
+        </button>
+      </div>
+
+      <!-- Info del venue -->
+      <div class="loc1-top" style="padding-top:20px;">
+        <div class="loc1-venue-name" id="locVenueName">Templo de San Juan de Dios</div>
+        <div class="loc1-addr" id="locVenueDetail">Misa de XV A&ntilde;os &middot; 16:00 hrs</div>
         <div class="loc1-hsep"></div>
       </div>
 
-      <div class="loc1-events">
-        <div class="loc1-event">
-          <div class="loc1-event-label">Misa de XV A&ntilde;os</div>
-          <div class="loc1-event-title">Ceremonia</div>
-          <div class="loc1-event-venue">Templo de San Juan de Dios</div>
-          <div class="loc1-event-time">16:00</div>
-        </div>
-        <div class="loc1-vdiv"></div>
-        <div class="loc1-event">
-          <div class="loc1-event-label">Cena &amp; Fiesta</div>
-          <div class="loc1-event-title">Recepci&oacute;n</div>
-          <div class="loc1-event-venue">Quinta Los Tres Reyes</div>
-          <div class="loc1-event-time">18:00</div>
-        </div>
-      </div>
-
       <div class="loc1-cta">
-        <a class="btn" href="https://maps.app.goo.gl/nwrBvUygBFSPZTY76?g_st=ic" target="_blank">
-          C&oacute;mo Llegar &middot; Recepci&oacute;n
+        <a class="btn" id="locMapBtn" href="https://maps.app.goo.gl/jmtVY5QTZgwWrN5U9?g_st=iw" target="_blank">
+          C&oacute;mo Llegar
         </a>
       </div>
 
-      <iframe class="loc1-map"
-        src="https://maps.google.com/maps?q=Quinta+Los+Tres+Reyes+Durango+Mexico&output=embed&hl=es"
+      <iframe class="loc1-map" id="locMapFrame"
+        src="https://maps.google.com/maps?q=Templo+de+San+Juan+de+Dios+Durango+Mexico&output=embed&hl=es"
         allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
 
@@ -1611,6 +1624,31 @@ function initWheelGallery(){
   lbClose.addEventListener('click',function(e){e.stopPropagation();closeLb();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
 })();
+
+/* VENUE TOGGLE */
+var venues={
+  ceremonia:{
+    name:'Templo de San Juan de Dios',
+    detail:'Misa de XV Años · 16:00 hrs',
+    map:'https://maps.google.com/maps?q=Templo+de+San+Juan+de+Dios+Durango+Mexico&output=embed&hl=es',
+    link:'https://maps.app.goo.gl/jmtVY5QTZgwWrN5U9?g_st=iw'
+  },
+  recepcion:{
+    name:'Quinta Los Tres Reyes',
+    detail:'Cena &amp; Fiesta · 18:00 hrs',
+    map:'https://maps.google.com/maps?q=Quinta+Los+Tres+Reyes+Durango+Mexico&output=embed&hl=es',
+    link:'https://maps.app.goo.gl/ooPpvP9CKrywVy4EA?g_st=iw'
+  }
+};
+function switchVenue(v){
+  var d=venues[v];
+  document.getElementById('locVenueName').textContent=d.name;
+  document.getElementById('locVenueDetail').innerHTML=d.detail;
+  document.getElementById('locMapBtn').href=d.link;
+  document.getElementById('locMapFrame').src=d.map;
+  document.getElementById('tabCeremonia').classList.toggle('active',v==='ceremonia');
+  document.getElementById('tabRecepcion').classList.toggle('active',v==='recepcion');
+}
 
 /* MUSICA */
 var fab=document.getElementById('musicFab'),audio=document.getElementById('bgAudio');
