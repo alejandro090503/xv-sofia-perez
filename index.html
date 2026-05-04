@@ -40,38 +40,33 @@ body{
   background-position:0 0, 50px 50px;
 }
 
-/* SPLASH SCREEN (temporal — sin sobre ni video) */
+/* SPLASH SCREEN */
 #envelope-screen{
   position:fixed;inset:0;z-index:10000;overflow:hidden;cursor:pointer;
-  background:linear-gradient(160deg,#071812 0%,#0D3020 50%,#071812 100%);
+  background:#071812;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:0;opacity:0;
 }
-#splash-monogram{
-  font-family:'Great Vibes',cursive;font-size:110px;line-height:1.2;
-  padding:0 24px;
-  background:linear-gradient(135deg,#1A7A58,#6DB896 50%,#1A7A58);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  filter:drop-shadow(0 4px 32px rgba(26,122,88,0.55));
-  opacity:0;transform:scale(0.88);
+/* Imagen del sobre */
+#env-img-wrap{
+  display:flex;flex-direction:column;align-items:center;gap:0;
+  opacity:0;transform:scale(0.94);
 }
-#splash-name{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:15px;letter-spacing:8px;text-transform:uppercase;
-  color:rgba(109,184,150,0.65);margin-top:6px;
-  opacity:0;
+#env-img{
+  width:min(88vw,360px);border-radius:18px;
+  box-shadow:0 24px 80px rgba(0,0,0,0.65),0 0 0 1px rgba(26,122,88,0.18);
 }
-#splash-line{
-  width:60px;height:1px;margin:22px auto 20px;
-  background:linear-gradient(90deg,transparent,#1A7A58,transparent);
-  opacity:0;
+/* Video del sobre */
+#env-video{
+  display:none;position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;z-index:1;background:#071812;
 }
 .envelope-hint{
   font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:8px;text-transform:uppercase;
-  color:rgba(109,184,150,0.80);opacity:0;cursor:pointer;white-space:nowrap;z-index:10;
-  padding:14px 40px;
+  color:rgba(109,184,150,0.85);opacity:0;cursor:pointer;white-space:nowrap;z-index:10;
+  padding:14px 40px;margin-top:32px;
   background:rgba(255,255,255,0.06);
-  border:1px solid rgba(26,122,88,0.30);
+  border:1px solid rgba(26,122,88,0.35);
   border-radius:40px;
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   overflow:hidden;position:relative;
@@ -86,8 +81,6 @@ body{
 }
 @keyframes shimmerSweep{0%{left:-130%;}55%{left:200%;}100%{left:200%;}}
 @keyframes hintFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
-/* VIDEO — deshabilitado temporalmente */
-#env-video{display:none;}
 #env-flash{position:fixed;inset:0;background:var(--bg);z-index:9999;opacity:0;pointer-events:none;}
 
 /* LOADER */
@@ -779,12 +772,13 @@ footer .fd{
 </head>
 <body>
 
-<!-- SPLASH (temporal) -->
+<!-- SPLASH -->
 <div id="envelope-screen" role="button" aria-label="Toca para ver la invitación">
-  <div id="splash-monogram">AS</div>
-  <div id="splash-name">Ana Sof&iacute;a &middot; XV A&ntilde;os</div>
-  <div id="splash-line"></div>
-  <p class="envelope-hint" id="env-hint">Toca para abrir</p>
+  <div id="env-img-wrap">
+    <img id="env-img" src="sobre.png" alt="Invitación Ana Sofía">
+    <p class="envelope-hint" id="env-hint">Toca para abrir</p>
+  </div>
+  <video id="env-video" src="sobre-video.mp4" playsinline muted></video>
 </div>
 <div id="env-flash"></div>
 
@@ -1284,15 +1278,14 @@ gsap.registerPlugin(ScrollTrigger);
   var envScreen=document.getElementById('envelope-screen');
   var envFlash=document.getElementById('env-flash');
   var hint=document.getElementById('env-hint');
-  var monogram=document.getElementById('splash-monogram');
-  var name=document.getElementById('splash-name');
-  var line=document.getElementById('splash-line');
+  var imgWrap=document.getElementById('env-img-wrap');
+  var envVideo=document.getElementById('env-video');
   var opened=false;
 
+  /* Entrada: aparece el sobre */
   gsap.timeline({delay:0.3})
     .to(envScreen,{opacity:1,duration:0.8,ease:'power2.out'})
-    .to(monogram,{opacity:1,scale:1,duration:1.1,ease:'back.out(1.6)'},'-=0.3')
-    .to([name,line],{opacity:1,duration:0.8,ease:'power2.out',stagger:0.12},'-=0.5')
+    .to(imgWrap,{opacity:1,scale:1,duration:1.0,ease:'back.out(1.4)'},'-=0.3')
     .to(hint,{opacity:1,duration:0.7,ease:'power2.out'},'-=0.2');
 
   function revealInvitation(){
@@ -1304,18 +1297,41 @@ gsap.registerPlugin(ScrollTrigger);
 
   function openEnvelope(){
     if(opened)return; opened=true;
+
+    /* Iniciar música */
     var aud=document.getElementById('bgAudio');
     aud.play().then(function(){
       document.getElementById('musicFab').style.background='#0F4D36';
       playing=true;
     }).catch(function(){});
-    gsap.set(envFlash,{opacity:1});
-    gsap.to(envScreen,{opacity:0,scale:1.04,duration:0.45,ease:'power2.in',
-      onComplete:function(){
-        envScreen.style.display='none';
-        revealInvitation();
-      }
+
+    /* Ocultar imagen, mostrar video */
+    gsap.to(imgWrap,{opacity:0,duration:0.35,ease:'power2.in',onComplete:function(){
+      imgWrap.style.display='none';
+      envVideo.style.display='block';
+      envVideo.play();
+    }});
+
+    /* Cuando termina el video → abrir invitación */
+    envVideo.addEventListener('ended',function(){
+      gsap.set(envFlash,{opacity:1});
+      gsap.to(envScreen,{opacity:0,duration:0.45,ease:'power2.in',
+        onComplete:function(){
+          envScreen.style.display='none';
+          revealInvitation();
+        }
+      });
     });
+
+    /* Fallback: si el video no carga en 8s, abrir de todos modos */
+    setTimeout(function(){
+      if(envScreen.style.display!=='none'){
+        gsap.set(envFlash,{opacity:1});
+        gsap.to(envScreen,{opacity:0,duration:0.45,ease:'power2.in',
+          onComplete:function(){envScreen.style.display='none';revealInvitation();}
+        });
+      }
+    },8000);
   }
 
   envScreen.addEventListener('click',openEnvelope);
