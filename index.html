@@ -1005,21 +1005,6 @@ footer .fd{
       <div class="dc2-eyebrow">Etiqueta</div>
       <div class="dc2-title">Dress Code</div>
       <div class="dc2-formal">Formal</div>
-      <div class="dc2-strip">
-        <span style="background:#1C2E24;"></span>
-        <span style="background:#5A9E76;"></span>
-        <span style="background:#A8D4B5;"></span>
-        <span style="background:#E8E0C4;"></span>
-      </div>
-      <div class="dc2-palette" id="swatches">
-        <div class="dc2-swatch"><div class="ds-circle" style="background:#1C2E24;"></div><div class="ds-name">Verde Oscuro</div></div>
-        <div class="dc2-swatch"><div class="ds-circle" style="background:#5A9E76;"></div><div class="ds-name">Verde Salvia</div></div>
-        <div class="dc2-swatch"><div class="ds-circle" style="background:#E8E0C4;"></div><div class="ds-name">Champagne</div></div>
-        <div class="dc2-swatch"><div class="ds-circle" style="background:#FFFFFF;border:1px solid rgba(255,255,255,0.25);"></div><div class="ds-name">Blanco</div></div>
-      </div>
-      <div class="dc2-avoid">
-        <p>Se les pide amablemente evitar<br>colores neón o llamativos</p>
-      </div>
     </div>
   </section>
 
@@ -1178,9 +1163,6 @@ footer .fd{
       <!-- Liverpool -->
       <div class="gift2-card rv">
         <div class="gift2-top">
-          <div class="gift2-icon-wrap" style="background:linear-gradient(135deg,#D42B2B,#A81F1F);">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.53 15.51 0 12.35 0c-1.7 0-3.23.62-4.35 1.64L6 3H4C2.34 3 1 4.34 1 6s1.34 3 3 3h.27l2.47 4.27C6.27 14.03 6 14.98 6 16c0 2.21 1.79 4 4 4s4-1.79 4-4c0-.72-.19-1.39-.52-1.98L15.59 9H16c1.93 0 3.5-1.4 3.93-3.24L20 6zm-6.17 9.36C13.28 15.8 12.68 16 12 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c0 .49-.17.93-.45 1.28l-.72-1.28z"/></svg>
-          </div>
           <div class="gift2-name">Liverpool</div>
           <div class="gift2-sub">Mesa de Regalos</div>
         </div>
@@ -1213,23 +1195,6 @@ footer .fd{
         </div>
       </div>
 
-      <div class="gift2-envelope rv">
-        <div class="gift2-env-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8FBE9E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-        </div>
-        <div class="gift2-env-title">Lluvia de Sobres</div>
-        <div class="gift2-env-sub">Tu presencia es el regalo<br>m&aacute;s valioso para Ana Sof&iacute;a</div>
-        <div class="gift2-env-sep"></div>
-        <div class="gift2-env-desc">
-          En el sal&oacute;n encontrar&aacute;s un buz&oacute;n decorado<br>
-          especialmente para ese d&iacute;a &mdash; con mucho cari&ntilde;o<br>
-          puedes depositar ah&iacute; tu sobre.<br>
-          Cada gesto llena de alegr&iacute;a el coraz&oacute;n de Sof&iacute;a.
-        </div>
-      </div>
 
     </div>
   </section>
@@ -1519,8 +1484,8 @@ function copyAccount(){
     clearErr();
 
     var lista=nombres.map(function(n,i){return (i+1)+'. '+n;}).join('\n');
-    var msg='Hola! Confirmo mi asistencia a los XV de Ana Sofía 🌿\n\nAsistentes:\n'+lista+'\n\nNos vemos pronto!';
-    window.location.href='https://wa.me/526181194060?text='+encodeURIComponent(msg);
+    var msg='Hola! ✅ Sí asistiré a los XV de Ana Sofía 🌿\n\nAsistentes:\n'+lista;
+    window.open('https://wa.me/526181194060?text='+encodeURIComponent(msg),'_blank');
 
     submitBtn.disabled=true;
     submitBtn.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="28" stroke-dashoffset="0"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.9s" repeatCount="indefinite"/></circle></svg> Enviando…';
