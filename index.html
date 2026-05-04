@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Ana Sofía &middot; Mis XV Años &middot; 27 Junio 2026</title>
+<meta name="description" content="Invitación digital a los XV Años de Ana Sofía Pérez López &middot; 27 de Junio de 2026 &middot; Durango">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Lato',sans-serif;font-weight:300;font-size:13px;
+  color:#1E3328;background:#F3FAF6;line-height:1.7;overflow-x:hidden;
+}
+:root{
+  --bg:#F3FAF6;
+  --accent:#5A9E76;
+  --dark:#3A7555;
+  --text:#1E3328;
+  --surface:rgba(90,158,118,0.08);
+  --card:rgba(255,255,255,0.85);
+  --champagne:#A8D4B5;
+  --sky:#7BC4A0;
+  --rosa:#8FBE9E;
+}
+
+.wrap{
+  max-width:430px;margin:0 auto;position:relative;overflow:clip;z-index:1;
+  background-color:var(--bg);
+  background-image:
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><g transform='translate(100,100)'><ellipse rx='16' ry='28' fill='%235A9E76' fill-opacity='.048' transform='rotate(0) translate(0,-12)'/><ellipse rx='16' ry='28' fill='%238FBE9E' fill-opacity='.042' transform='rotate(72) translate(0,-12)'/><ellipse rx='16' ry='28' fill='%235A9E76' fill-opacity='.042' transform='rotate(144) translate(0,-12)'/><ellipse rx='16' ry='28' fill='%238FBE9E' fill-opacity='.042' transform='rotate(216) translate(0,-12)'/><ellipse rx='16' ry='28' fill='%235A9E76' fill-opacity='.042' transform='rotate(288) translate(0,-12)'/><circle r='8' fill='%23A8D4B5' fill-opacity='.075'/></g><ellipse cx='28' cy='28' rx='8' ry='16' fill='%237BC4A0' fill-opacity='.034' transform='rotate(-38 28 28)'/><ellipse cx='172' cy='172' rx='8' ry='16' fill='%237BC4A0' fill-opacity='.034' transform='rotate(38 172 172)'/><ellipse cx='172' cy='28' rx='6' ry='12' fill='%238FBE9E' fill-opacity='.030' transform='rotate(22 172 28)'/><ellipse cx='28' cy='172' rx='6' ry='12' fill='%235A9E76' fill-opacity='.030' transform='rotate(-22 28 172)'/></svg>"),
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><g transform='translate(50,50)'><ellipse rx='9' ry='17' fill='%238FBE9E' fill-opacity='.038' transform='rotate(36) translate(0,-7)'/><ellipse rx='9' ry='17' fill='%235A9E76' fill-opacity='.034' transform='rotate(108) translate(0,-7)'/><ellipse rx='9' ry='17' fill='%238FBE9E' fill-opacity='.034' transform='rotate(180) translate(0,-7)'/><ellipse rx='9' ry='17' fill='%235A9E76' fill-opacity='.034' transform='rotate(252) translate(0,-7)'/><ellipse rx='9' ry='17' fill='%238FBE9E' fill-opacity='.034' transform='rotate(324) translate(0,-7)'/><circle r='4.5' fill='%23A8D4B5' fill-opacity='.06'/></g></svg>");
+  background-repeat:repeat;
+  background-size:200px 200px, 100px 100px;
+  background-position:0 0, 50px 50px;
+}
+
+/* ENVELOPE SCREEN */
+#envelope-screen{
+  position:fixed;inset:0;z-index:10000;overflow:hidden;cursor:pointer;
+  background:#edf7f1 url('https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/assets/sobre.png') center/contain no-repeat;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  padding-bottom:60px;
+  opacity:0;
+}
+.envelope-hint{
+  font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:8px;text-transform:uppercase;
+  color:rgba(30,80,50,0.88);opacity:0;cursor:pointer;white-space:nowrap;z-index:10;
+  padding:14px 40px;
+  background:rgba(255,255,255,0.72);
+  border:1px solid rgba(90,158,118,0.35);
+  border-radius:40px;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  box-shadow:0 6px 28px rgba(58,117,85,0.15);
+  overflow:hidden;position:relative;
+  animation:hintFloat 3.2s ease-in-out infinite;
+}
+.envelope-hint::before{
+  content:'';position:absolute;top:0;left:-130%;
+  width:75%;height:100%;
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,0.5) 50%,rgba(255,255,255,0.3) 56%,transparent 72%);
+  animation:shimmerSweep 2.8s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes shimmerSweep{0%{left:-130%;}55%{left:200%;}100%{left:200%;}}
+@keyframes hintFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+/* VIDEO apertura */
+#env-video{
+  position:fixed;inset:0;z-index:10001;width:100%;height:100%;
+  object-fit:cover;background:#edf7f1;display:none;
+}
+#env-flash{position:fixed;inset:0;background:var(--bg);z-index:9999;opacity:0;pointer-events:none;}
+
+/* LOADER */
+#loader{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--bg);
+  display:none;flex-direction:column;align-items:center;justify-content:center;gap:20px;
+}
+.ld-name{
+  font-family:'Great Vibes',cursive;font-size:84px;
+  background:linear-gradient(135deg,#5A9E76,#A8D4B5,#3A7555);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:flex;gap:1px;
+}
+.ld-name span{opacity:0;display:inline-block;transform:translateY(22px);}
+.ld-tag{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:12px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--accent);opacity:0;
+}
+
+/* HERO */
+.hero{
+  position:relative;width:100%;min-height:100dvh;
+  display:flex;flex-direction:column;background:#C8E8D4;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/38cafce0-704c-423e-bb3b-f5c10c82814b/1777872315659-0.jpeg') center top/cover no-repeat;
+}
+.hero-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(243,250,246,0) 0%,
+    rgba(243,250,246,0) 35%,
+    rgba(243,250,246,0.45) 58%,
+    rgba(243,250,246,0.90) 78%,
+    #F3FAF6 100%
+  );
+}
+.hero-bottom{
+  position:relative;z-index:3;
+  margin-top:auto;padding:0 28px 62px;text-align:center;
+}
+.fecha-sec{padding:32px 26px 10px;text-align:center;}
+.fecha-line{display:flex;align-items:center;justify-content:center;gap:18px;}
+.fecha-line .fl-bar{flex:1;max-width:60px;height:1px;background:linear-gradient(to right,transparent,var(--accent));opacity:.5;}
+.fecha-line .fl-bar.right{background:linear-gradient(to left,transparent,var(--accent));}
+.fecha-txt{
+  font-family:'Cormorant Garamond',serif;font-weight:400;
+  font-size:16px;letter-spacing:7px;text-transform:uppercase;color:var(--dark);
+}
+.hero-name{
+  font-family:'Great Vibes',cursive;font-size:clamp(52px,16vw,80px);line-height:1.05;
+  background:linear-gradient(135deg,#F3FAF6,#A8D4B5 40%,#F3FAF6);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:10px;padding:0 16px;
+  filter:drop-shadow(0 2px 18px rgba(0,0,0,.45));
+  transform:translateY(30px);opacity:0;
+}
+.hero-sub{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  transform:translateY(16px);opacity:0;
+}
+.xv-num{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:68px;letter-spacing:12px;line-height:1;
+  background:linear-gradient(135deg,#3A7555 0%,#A8D4B5 45%,#3A7555 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  position:relative;display:inline-block;
+}
+.xv-num::after{
+  content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
+  width:50px;height:1px;background:var(--accent);opacity:.55;
+}
+.xv-anos{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:18px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--dark);margin-top:10px;
+}
+
+/* ORNAMENTO */
+.orn{display:flex;justify-content:center;padding:10px 0;}
+.orn svg{width:100%;max-width:300px;height:42px;}
+
+/* SECCIONES */
+section{padding:64px 26px;}
+.eyebrow{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:13px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--accent);text-align:center;margin-bottom:8px;
+}
+.eyebrow-sky{color:var(--sky);}
+.eyebrow-rosa{color:var(--rosa);}
+.sec-title{
+  font-family:'Great Vibes',cursive;font-size:50px;
+  text-align:center;line-height:1.1;margin-bottom:30px;
+  background:linear-gradient(135deg,#3A7555 0%,#5A9E76 45%,#A8D4B5 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* COUNTDOWN V2 — Radial Rings */
+#scd{overflow:visible;}
+.cd2-container{
+  background:linear-gradient(145deg,rgba(255,255,255,0.72),rgba(243,250,246,0.88));
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(90,158,118,0.13);
+  border-radius:28px;padding:40px 20px 36px;
+  box-shadow:0 12px 48px rgba(58,117,85,0.07),inset 0 1px 0 rgba(255,255,255,0.85);
+  position:relative;overflow:hidden;
+}
+.cd2-container::before{
+  content:'';position:absolute;top:-1px;left:15%;right:15%;height:1.5px;
+  background:linear-gradient(90deg,transparent,#5A9E76 25%,#7BC4A0 50%,#A8D4B5 75%,transparent);
+}
+.cd2-container::after{
+  content:'';position:absolute;bottom:-1px;left:25%;right:25%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(90,158,118,0.2),transparent);
+}
+.cd2-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px 20px;max-width:290px;margin:0 auto;}
+.cd2-unit{display:flex;flex-direction:column;align-items:center;}
+.cd2-ring-wrap{position:relative;width:112px;height:112px;}
+.cd2-ring-wrap svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 2px 8px rgba(58,117,85,0.08));}
+.cd2-ring-bg{fill:none;stroke:rgba(90,158,118,0.07);stroke-width:2.5;}
+.cd2-ring-progress{fill:none;stroke-width:2.8;stroke-linecap:round;}
+.cd2-ring-glow{fill:none;stroke-width:9;stroke-linecap:round;filter:blur(7px);opacity:.3;}
+.cd2-value{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.cd2-num{
+  font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:400;
+  color:var(--dark);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:1px;
+}
+.cd2-lbl{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--accent);margin-top:4px;opacity:.75;
+}
+.cd2-quote{
+  text-align:center;margin-top:28px;padding-top:20px;
+  border-top:1px solid rgba(90,158,118,0.10);
+}
+.cd2-quote p{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:15px;color:var(--dark);opacity:.6;letter-spacing:1px;line-height:1.6;
+}
+
+/* UBICACION — Dual Venue Frame */
+.loc1-card{
+  position:relative;overflow:hidden;
+  background:linear-gradient(158deg,rgba(255,255,255,0.88),rgba(243,250,246,0.97));
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  border-radius:28px;
+  border:1px solid rgba(90,158,118,0.16);
+  box-shadow:0 14px 56px rgba(58,117,85,0.10),inset 0 1px 0 rgba(255,255,255,0.96);
+}
+.loc1-card::before{
+  content:'';position:absolute;left:0;top:12%;bottom:12%;width:2.5px;
+  background:linear-gradient(to bottom,transparent,#7BC4A0 25%,#5A9E76 55%,#A8D4B5 80%,transparent);
+  opacity:.52;
+}
+.loc1-top{padding:34px 28px 0;text-align:center;}
+.loc1-pin{
+  width:56px;height:56px;border-radius:50%;margin:0 auto 16px;
+  background:linear-gradient(135deg,rgba(90,158,118,0.14),rgba(90,158,118,0.26));
+  border:1.5px solid rgba(90,158,118,0.30);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(58,117,85,0.13);
+}
+.loc1-pin svg{width:22px;height:22px;fill:var(--accent);}
+.loc1-venue-name{
+  font-family:'Great Vibes',cursive;font-size:46px;
+  background:linear-gradient(135deg,var(--dark) 20%,var(--accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1.1;margin-bottom:10px;
+}
+.loc1-addr{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:14px;color:rgba(30,51,40,.6);letter-spacing:.4px;line-height:1.75;
+}
+.loc1-hsep{
+  width:48px;height:1px;margin:20px auto 22px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.32;
+}
+.loc1-events{
+  display:grid;grid-template-columns:1fr 1px 1fr;
+  margin:0 22px 24px;
+  border:1px solid rgba(90,158,118,0.16);
+  border-radius:18px;background:rgba(168,212,181,0.10);
+  overflow:hidden;
+}
+.loc1-event{
+  padding:18px 14px 20px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+}
+.loc1-event-label{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:10px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--accent);opacity:.82;margin-bottom:8px;
+  min-height:2.8em;display:flex;align-items:center;justify-content:center;
+  line-height:1.4;
+}
+.loc1-event-title{
+  font-family:'Great Vibes',cursive;font-size:26px;
+  color:var(--dark);line-height:1.1;margin-bottom:6px;
+}
+.loc1-event-venue{
+  font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;
+  color:rgba(30,51,40,.5);letter-spacing:.4px;line-height:1.5;margin-bottom:8px;
+}
+.loc1-event-time{
+  font-family:'Cormorant Garamond',serif;font-size:22px;
+  color:var(--dark);letter-spacing:5px;line-height:1;
+}
+.loc1-vdiv{width:1px;background:linear-gradient(to bottom,transparent,rgba(90,158,118,0.28),transparent);}
+.loc1-cta{text-align:center;padding:0 22px 26px;}
+.loc1-map{
+  width:100%;height:215px;border:0;display:block;
+  border-radius:0 0 28px 28px;opacity:.92;
+  filter:saturate(0.85);
+}
+.btn{
+  display:inline-block;margin-top:16px;padding:12px 30px;
+  background:linear-gradient(135deg,#5A9E76,#3A7555);color:#FFFFFF;border-radius:30px;
+  font-family:'Cormorant Garamond',serif;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:3px;text-decoration:none;
+  transition:opacity .3s,transform .3s;border:none;cursor:pointer;
+  box-shadow:0 4px 16px rgba(58,117,85,0.30);
+}
+.btn:hover{opacity:.88;transform:translateY(-2px);}
+
+/* CALENDAR */
+.cal-c{text-align:center;}
+.cal-c p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--dark);margin-bottom:18px;}
+
+/* ITINERARIO V3 — Centered Glowing Timeline */
+#siti{overflow:visible;padding-left:24px;padding-right:24px;}
+.itv3{
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;
+  padding:10px 0 10px;
+}
+.itv3-track{
+  position:absolute;left:50%;transform:translateX(-50%);
+  top:0;bottom:0;width:1px;z-index:0;
+  background:linear-gradient(to bottom,
+    transparent 0%,
+    rgba(123,196,160,0.30) 10%,
+    rgba(90,158,118,0.22) 45%,
+    rgba(143,190,158,0.28) 80%,
+    transparent 100%);
+}
+.itv3-glow{
+  position:absolute;left:50%;transform:translateX(-50%);
+  top:0;width:5px;height:110px;
+  background:linear-gradient(to bottom,
+    transparent,
+    rgba(123,196,160,0.6) 20%,
+    rgba(90,158,118,0.9) 50%,
+    rgba(143,190,158,0.6) 80%,
+    transparent);
+  filter:blur(3px);border-radius:6px;
+  z-index:1;pointer-events:none;
+}
+.itv3-item{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;padding:30px 16px 4px;width:100%;
+}
+.itv3-gem{
+  width:9px;height:9px;
+  background:linear-gradient(135deg,#A8D4B5 30%,#3A7555);
+  transform:rotate(45deg);border-radius:2px;
+  box-shadow:0 0 0 4px rgba(90,158,118,0.10),0 0 18px rgba(90,158,118,0.40);
+  margin-bottom:18px;flex-shrink:0;
+}
+.itv3-gem-sky{
+  background:linear-gradient(135deg,#B8E0CB 30%,#3A9E68);
+  box-shadow:0 0 0 4px rgba(123,196,160,0.12),0 0 18px rgba(123,196,160,0.42);
+}
+.itv3-gem-rosa{
+  background:linear-gradient(135deg,#C8EDD8 30%,#5AA87A);
+  box-shadow:0 0 0 4px rgba(143,190,158,0.12),0 0 18px rgba(143,190,158,0.42);
+}
+.itv3-time{
+  font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;
+  letter-spacing:8px;color:var(--dark);line-height:1;margin-bottom:6px;
+  text-indent:8px;
+}
+.itv3-ev{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:14px;color:rgba(30,51,40,0.55);
+  letter-spacing:3px;text-transform:uppercase;line-height:1.5;
+  text-indent:3px;
+}
+.itv3-item:last-child{padding-bottom:10px;}
+
+/* DRESS CODE V2 — Editorial oscuro */
+.dc2-wrap{
+  position:relative;overflow:hidden;
+  background:linear-gradient(155deg,#0F2318 0%,#0A1A10 55%,#0F2318 100%);
+  border-radius:28px;padding:36px 24px 32px;
+  box-shadow:0 18px 60px rgba(30,51,40,0.28);
+}
+.dc2-wrap::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 18% 18%,rgba(90,158,118,0.13) 0%,transparent 60%),
+    radial-gradient(ellipse at 82% 82%,rgba(143,190,158,0.09) 0%,transparent 60%);
+}
+.dc2-wrap::after{
+  content:'';position:absolute;top:-1px;left:18%;right:18%;height:2px;
+  background:linear-gradient(90deg,transparent,#5A9E76 30%,#A8D4B5 70%,transparent);
+  opacity:.55;
+}
+.dc2-eyebrow{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:11px;letter-spacing:6px;text-transform:uppercase;
+  color:rgba(168,212,181,0.55);text-align:center;margin-bottom:4px;position:relative;
+}
+.dc2-title{
+  font-family:'Great Vibes',cursive;font-size:50px;
+  color:#fff;text-align:center;line-height:1.05;margin-bottom:6px;position:relative;
+  filter:drop-shadow(0 2px 14px rgba(90,158,118,0.45));
+}
+.dc2-formal{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;
+  letter-spacing:5px;text-transform:uppercase;
+  color:rgba(168,212,181,0.70);text-align:center;margin-bottom:22px;position:relative;
+}
+.dc2-strip{
+  display:flex;height:5px;border-radius:3px;overflow:hidden;margin-bottom:26px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.35);position:relative;
+}
+.dc2-strip span{flex:1;}
+.dc2-palette{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px;position:relative;}
+.dc2-swatch{text-align:center;}
+.dc2-swatch .ds-circle{
+  width:54px;height:54px;border-radius:50%;margin:0 auto 8px;
+  border:2px solid rgba(255,255,255,0.13);
+  box-shadow:0 5px 18px rgba(0,0,0,0.28);
+}
+.dc2-swatch .ds-name{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.50);
+}
+.dc2-avoid{
+  position:relative;text-align:center;padding:15px 18px;
+  border:1px solid rgba(143,190,158,0.22);border-radius:14px;
+  background:rgba(143,190,158,0.06);
+}
+.dc2-avoid::before{
+  content:'✕';position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  width:22px;height:22px;border-radius:50%;
+  background:#0A1A10;border:1px solid rgba(143,190,158,0.32);
+  font-size:10px;line-height:22px;text-align:center;
+  color:rgba(143,190,158,0.65);
+}
+.dc2-avoid p{
+  font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;
+  color:rgba(143,190,158,0.72);letter-spacing:1px;line-height:1.65;
+}
+
+/* FAMILIA V2 — Medallón retrato */
+.fam2{display:flex;flex-direction:column;gap:0;align-items:stretch;}
+.fam2-group{
+  width:100%;text-align:center;position:relative;padding:30px 26px;
+  background:linear-gradient(145deg,rgba(255,255,255,0.78),rgba(243,250,246,0.92));
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(90,158,118,0.13);
+  box-shadow:0 6px 30px rgba(58,117,85,0.07),inset 0 1px 0 rgba(255,255,255,0.88);
+}
+.fam2-group:first-child{border-radius:24px 24px 0 0;}
+.fam2-group:last-child{border-radius:0 0 24px 24px;}
+.fam2-medallion{
+  width:52px;height:52px;border-radius:50%;margin:0 auto 14px;
+  background:linear-gradient(135deg,rgba(90,158,118,0.14),rgba(168,212,181,0.26));
+  border:1.5px solid rgba(90,158,118,0.32);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(58,117,85,0.11);
+}
+.fam2-medallion svg{width:22px;height:22px;fill:none;stroke:var(--accent);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;}
+.fam2-role{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:11px;letter-spacing:6px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;opacity:.82;
+}
+.fam2-names{
+  font-family:'Cormorant Garamond',serif;font-size:20px;
+  color:var(--dark);line-height:1.80;
+}
+.fam2-amp{
+  display:block;font-style:italic;font-size:30px;
+  color:var(--accent);opacity:.45;line-height:1.1;margin:4px 0;
+}
+.fam2-divider{
+  width:100%;display:flex;align-items:center;justify-content:center;
+  height:46px;position:relative;background:rgba(255,255,255,0.5);
+  border-left:1px solid rgba(90,158,118,0.13);border-right:1px solid rgba(90,158,118,0.13);
+}
+.fam2-divider::before,.fam2-divider::after{
+  content:'';position:absolute;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(90,158,118,0.18),transparent);
+}
+.fam2-divider::before{top:0;}
+.fam2-divider::after{bottom:0;}
+.fam2-divider svg{width:100px;height:26px;position:relative;}
+
+/* GALERIA V3 — Rueda de la Fortuna COMPLETA */
+#sgal{padding:40px 0 50px;overflow:visible;}
+.wgal-scene{
+  position:relative;height:460px;overflow:hidden;margin:0 auto;
+}
+.wgal-rim{
+  position:absolute;
+  top:calc(50% - 160px);left:calc(50% - 160px);
+  width:320px;height:320px;
+  border-radius:50%;
+  border:1px solid rgba(90,158,118,0.14);
+  pointer-events:none;z-index:0;
+}
+.wgal-rim::before{
+  content:'';position:absolute;inset:20px;border-radius:50%;
+  border:1px dashed rgba(90,158,118,0.08);
+}
+.wgal-hub{
+  position:absolute;
+  width:18px;height:18px;
+  top:calc(50% - 9px);left:calc(50% - 9px);
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--champagne));
+  box-shadow:0 2px 14px rgba(58,117,85,0.38);
+  z-index:6;
+}
+.wgal-wheel{
+  position:absolute;
+  top:50%;left:50%;
+  width:0;height:0;
+}
+.wgal-item{
+  position:absolute;
+  width:100px;height:133px;
+  margin-left:-50px;
+  margin-top:-207px;
+  transform-origin:50px 207px;
+  transform:rotate(calc(var(--i) * 60deg));
+}
+.wgal-spoke{
+  position:absolute;
+  top:133px;left:50%;
+  width:1.5px;height:74px;
+  background:linear-gradient(to bottom,rgba(90,158,118,0.22),transparent);
+  transform:translateX(-50%);
+}
+.wgal-card{
+  position:absolute;
+  width:100px;height:133px;
+  border-radius:14px;overflow:hidden;
+  border:2.5px solid rgba(255,255,255,0.90);
+  box-shadow:0 8px 28px rgba(58,117,85,0.17),0 2px 6px rgba(0,0,0,0.07);
+  background:rgba(243,250,246,0.5);
+}
+.wgal-card img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.wgal-hint{
+  text-align:center;margin-top:14px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:12px;letter-spacing:3px;color:var(--accent);opacity:.55;
+}
+
+/* LIGHTBOX GALERIA */
+#gal-lb{
+  position:fixed;inset:0;z-index:9500;
+  display:flex;align-items:center;justify-content:center;
+  visibility:hidden;opacity:0;
+  cursor:zoom-out;
+}
+#gal-lb-bg{
+  position:absolute;inset:0;
+  background:rgba(10,26,16,0.82);
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+}
+#gal-lb-img{
+  position:relative;z-index:1;
+  max-width:88vw;max-height:82vh;
+  object-fit:contain;
+  border-radius:22px;
+  border:3px solid rgba(255,255,255,0.88);
+  box-shadow:0 28px 80px rgba(0,0,0,0.55),0 0 0 1px rgba(90,158,118,0.22);
+  transform-origin:center center;
+}
+#gal-lb-close{
+  position:absolute;top:22px;right:22px;z-index:2;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,0.14);
+  border:1.5px solid rgba(255,255,255,0.30);
+  color:#fff;font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  transition:background 0.2s;
+}
+#gal-lb-close:hover{background:rgba(255,255,255,0.26);}
+.wgal-card{cursor:zoom-in;}
+
+/* MESA DE REGALOS V2 — Centrada Ceremonial */
+.gift2-wrap{display:flex;flex-direction:column;gap:18px;align-items:center;}
+.gift2-card{
+  width:100%;
+  background:linear-gradient(145deg,rgba(255,255,255,0.82),rgba(243,250,246,0.95));
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-radius:26px;overflow:hidden;
+  border:1px solid rgba(90,158,118,0.14);
+  box-shadow:0 8px 36px rgba(58,117,85,0.09);
+  text-align:center;
+}
+.gift2-card::before{
+  content:'';display:block;height:2px;
+  background:linear-gradient(90deg,transparent,#5A9E76 30%,#A8D4B5 70%,transparent);
+  opacity:.48;
+}
+.gift2-top{padding:26px 26px 20px;}
+.gift2-icon-wrap{
+  width:66px;height:66px;border-radius:22px;margin:0 auto 16px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 22px rgba(58,117,85,0.18);
+}
+.gift2-name{
+  font-family:'Great Vibes',cursive;font-size:34px;
+  color:var(--dark);margin-bottom:4px;
+}
+.gift2-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--accent);opacity:.72;
+}
+.gift2-acct-label{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:11px;letter-spacing:2px;color:var(--accent);opacity:.58;margin-top:14px;
+}
+.gift2-account{
+  font-family:'Lato',sans-serif;font-size:16px;letter-spacing:2px;
+  color:var(--dark);margin:6px 0 0;font-variant-numeric:tabular-nums;
+}
+.gift2-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(90,158,118,0.14),transparent);}
+.gift2-bottom{padding:16px 26px 22px;}
+.btn-copy{
+  display:inline-flex;align-items:center;gap:7px;padding:12px 24px;
+  background:linear-gradient(135deg,#5A9E76,#3A7555);color:#fff;border-radius:24px;
+  font-family:'Cormorant Garamond',serif;font-size:11px;text-transform:uppercase;letter-spacing:2.5px;
+  border:none;cursor:pointer;transition:opacity .3s,transform .3s;
+  box-shadow:0 4px 16px rgba(58,117,85,0.26);
+}
+.btn-copy:hover{opacity:.88;transform:translateY(-1px);}
+.gift2-envelope{
+  width:100%;text-align:center;padding:26px 24px;
+  background:linear-gradient(145deg,rgba(143,190,158,0.07),rgba(168,212,181,0.11));
+  border-radius:26px;border:1px solid rgba(143,190,158,0.18);
+  box-shadow:0 6px 28px rgba(143,190,158,0.07);
+}
+.gift2-env-icon{
+  width:58px;height:58px;border-radius:50%;margin:0 auto 14px;
+  background:linear-gradient(135deg,rgba(143,190,158,0.18),rgba(168,212,181,0.28));
+  border:1.5px solid rgba(143,190,158,0.30);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px rgba(143,190,158,0.14);
+}
+.gift2-env-title{font-family:'Great Vibes',cursive;font-size:34px;color:var(--dark);margin-bottom:8px;}
+.gift2-env-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:15px;color:var(--text);opacity:.68;line-height:1.65;
+}
+.gift2-env-sep{
+  width:36px;height:1px;margin:14px auto;
+  background:linear-gradient(90deg,transparent,rgba(143,190,158,0.5),transparent);
+}
+.gift2-env-desc{
+  font-family:'Cormorant Garamond',serif;font-size:13.5px;
+  color:rgba(30,51,40,.55);line-height:1.75;letter-spacing:.3px;
+}
+
+/* RSVP */
+.rsvp-card{
+  background:var(--card);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(90,158,118,0.18);border-radius:18px;padding:28px 22px;
+  box-shadow:0 4px 20px rgba(58,117,85,0.08);
+}
+.rsvp-deadline{
+  text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:13px;color:var(--accent);letter-spacing:2px;margin-bottom:20px;
+}
+.rsvp-card label{
+  display:block;font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin:14px 0 6px;
+}
+.rsvp-card label:first-of-type{margin-top:0;}
+.rsvp-card input,.rsvp-card select,.rsvp-card textarea{
+  width:100%;padding:13px 14px;min-height:44px;
+  border:1px solid rgba(90,158,118,0.25);border-radius:10px;
+  background:rgba(243,250,246,0.75);font-family:'Lato',sans-serif;
+  font-size:14px;color:var(--text);outline:none;transition:border-color .3s;-webkit-appearance:none;
+}
+.rsvp-card input::placeholder,.rsvp-card textarea::placeholder{color:rgba(30,51,40,.35);}
+.rsvp-card input:focus,.rsvp-card select:focus,.rsvp-card textarea:focus{border-color:var(--accent);}
+.btn-rsvp{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;margin-top:20px;padding:15px;min-height:48px;
+  background:linear-gradient(135deg,var(--accent),var(--dark));
+  color:#fff;border-radius:30px;border:none;cursor:pointer;
+  font-family:'Cormorant Garamond',serif;font-size:12px;text-transform:uppercase;letter-spacing:3px;
+  transition:opacity .3s,transform .3s;
+  box-shadow:0 4px 22px rgba(58,117,85,0.28);
+}
+.btn-rsvp:hover{opacity:0.88;transform:translateY(-2px);}
+.btn-rsvp:disabled{opacity:0.52;cursor:not-allowed;transform:none;}
+.rsvp-passes-badge{
+  display:block;width:fit-content;margin:0 auto 22px;
+  background:linear-gradient(135deg,var(--accent),var(--dark));
+  color:#fff;border-radius:30px;padding:5px 20px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:14px;letter-spacing:2px;text-align:center;
+}
+.rsvp-name-row{
+  display:flex;align-items:center;gap:10px;margin-bottom:10px;
+}
+.rsvp-name-row:last-child{margin-bottom:0;}
+.rsvp-name-num{
+  flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--champagne));
+  color:#fff;font-size:12px;font-family:'Cormorant Garamond',serif;
+  display:flex;align-items:center;justify-content:center;
+}
+.rsvp-name-row input{flex:1;}
+.rsvp-success{
+  visibility:hidden;opacity:0;text-align:center;padding:18px 0 6px;
+}
+.rsvp-error{
+  min-height:18px;font-family:'Lato',sans-serif;font-size:12px;
+  color:#c0576a;text-align:center;margin-top:10px;
+}
+
+/* FOOTER */
+footer{padding:50px 20px;text-align:center;}
+footer .fn{
+  font-family:'Great Vibes',cursive;font-size:50px;
+  background:linear-gradient(135deg,#5A9E76,#A8D4B5,#3A7555);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+footer .fd{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-top:6px;
+}
+
+/* MUSICA FAB */
+.music-fab{
+  position:fixed;bottom:24px;right:24px;z-index:998;
+  width:56px;height:56px;border-radius:50%;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#5A9E76,#3A7555);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(58,117,85,0.40);
+  animation:fabpulse 2.8s infinite ease-out;
+}
+@keyframes fabpulse{
+  0%{box-shadow:0 0 0 0 rgba(90,158,118,.50);}
+  70%{box-shadow:0 0 0 18px rgba(90,158,118,0);}
+  100%{box-shadow:0 0 0 0 rgba(90,158,118,0);}
+}
+.music-fab svg{width:24px;height:24px;}
+</style>
+</head>
+<body>
+
+<!-- ENVELOPE -->
+<div id="envelope-screen" role="button" aria-label="Toca para abrir tu invitacion">
+  <p class="envelope-hint" id="env-hint">Toca para abrir</p>
+</div>
+<video id="env-video" playsinline webkit-playsinline preload="none">
+  <source src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/assets/sobre-apertura.mp4" type="video/mp4">
+</video>
+<div id="env-flash"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-name" id="ldName"></div>
+  <div class="ld-tag" id="ldTag">Sus XV A&ntilde;os &middot; 27 Junio 2026</div>
+</div>
+
+<div class="wrap" style="visibility:hidden">
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0;">
+    <div class="hero-bg"></div>
+    <div class="hero-veil"></div>
+    <div class="hero-bottom">
+      <h1 class="hero-name" id="hNm">Ana Sofía</h1>
+      <div class="hero-sub" id="hSb">
+        <span class="xv-num">XV</span>
+        <span class="xv-anos">A&ntilde;os</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORNAMENTO -->
+  <div class="orn rv">
+    <svg viewBox="0 0 300 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="20" x2="96" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="0" y1="23" x2="88" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+      <path d="M96 21.5 Q104 7 116 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <path d="M122 21.5 L126.5 15.5 L131 21.5 L126.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M150 6 L165 21.5 L150 37 L135 21.5 Z" fill="rgba(90,158,118,0.09)" stroke="#5A9E76" stroke-width="1.05" opacity="0.50"/>
+      <circle cx="150" cy="21.5" r="4.5" fill="rgba(168,212,181,0.22)" stroke="#5A9E76" stroke-width="0.7" opacity="0.58"/>
+      <path d="M169 21.5 L173.5 15.5 L178 21.5 L173.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M184 21.5 Q196 7 204 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <line x1="204" y1="20" x2="300" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="212" y1="23" x2="300" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+    </svg>
+  </div>
+
+  <!-- FECHA -->
+  <div class="fecha-sec rv">
+    <div class="fecha-line">
+      <div class="fl-bar"></div>
+      <div class="fecha-txt">27 &middot; Junio &middot; MMXXVI</div>
+      <div class="fl-bar right"></div>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <section id="scd">
+    <h2 class="sec-title rv">Cuenta Regresiva</h2>
+    <div class="cd2-container">
+      <div class="cd2-grid">
+        <div class="cd2-unit cd2-rv">
+          <div class="cd2-ring-wrap">
+            <svg viewBox="0 0 120 120">
+              <circle class="cd2-ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="cd2-ring-glow" cx="60" cy="60" r="50" stroke="#5A9E76" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)" data-ring="d"/>
+              <circle class="cd2-ring-progress" cx="60" cy="60" r="50" stroke="#5A9E76" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)" data-ring="d"/>
+            </svg>
+            <div class="cd2-value"><div class="cd2-num" id="cdD">000</div><div class="cd2-lbl">D&iacute;as</div></div>
+          </div>
+        </div>
+        <div class="cd2-unit cd2-rv">
+          <div class="cd2-ring-wrap">
+            <svg viewBox="0 0 120 120">
+              <circle class="cd2-ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="cd2-ring-glow" cx="60" cy="60" r="50" stroke="#7BC4A0" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)" data-ring="h"/>
+              <circle class="cd2-ring-progress" cx="60" cy="60" r="50" stroke="#7BC4A0" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)" data-ring="h"/>
+            </svg>
+            <div class="cd2-value"><div class="cd2-num" id="cdH">00</div><div class="cd2-lbl">Horas</div></div>
+          </div>
+        </div>
+        <div class="cd2-unit cd2-rv">
+          <div class="cd2-ring-wrap">
+            <svg viewBox="0 0 120 120">
+              <circle class="cd2-ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="cd2-ring-glow" cx="60" cy="60" r="50" stroke="#8FBE9E" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)" data-ring="m"/>
+              <circle class="cd2-ring-progress" cx="60" cy="60" r="50" stroke="#8FBE9E" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)" data-ring="m"/>
+            </svg>
+            <div class="cd2-value"><div class="cd2-num" id="cdM">00</div><div class="cd2-lbl">Minutos</div></div>
+          </div>
+        </div>
+        <div class="cd2-unit cd2-rv">
+          <div class="cd2-ring-wrap">
+            <svg viewBox="0 0 120 120">
+              <circle class="cd2-ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="cd2-ring-glow" cx="60" cy="60" r="50" stroke="#A8D4B5" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)" data-ring="s"/>
+              <circle class="cd2-ring-progress" cx="60" cy="60" r="50" stroke="#A8D4B5" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)" data-ring="s"/>
+            </svg>
+            <div class="cd2-value"><div class="cd2-num" id="cdS">00</div><div class="cd2-lbl">Segundos</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cd2-quote">
+        <p>Cada segundo m&aacute;s cerca de este d&iacute;a especial</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="orn rv">
+    <svg viewBox="0 0 300 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="20" x2="96" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="0" y1="23" x2="88" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+      <path d="M96 21.5 Q104 7 116 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <path d="M122 21.5 L126.5 15.5 L131 21.5 L126.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M150 6 L165 21.5 L150 37 L135 21.5 Z" fill="rgba(90,158,118,0.09)" stroke="#5A9E76" stroke-width="1.05" opacity="0.50"/>
+      <circle cx="150" cy="21.5" r="4.5" fill="rgba(168,212,181,0.22)" stroke="#5A9E76" stroke-width="0.7" opacity="0.58"/>
+      <path d="M169 21.5 L173.5 15.5 L178 21.5 L173.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M184 21.5 Q196 7 204 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <line x1="204" y1="20" x2="300" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="212" y1="23" x2="300" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+    </svg>
+  </div>
+
+  <!-- UBICACION -->
+  <section id="subic">
+    <h2 class="sec-title rv">Ubicaci&oacute;n</h2>
+    <div class="loc1-card rv">
+
+      <div class="loc1-top">
+        <div class="loc1-pin">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div class="loc1-venue-name">Durango</div>
+        <div class="loc1-addr">27 de Junio de 2026</div>
+        <div class="loc1-hsep"></div>
+      </div>
+
+      <div class="loc1-events">
+        <div class="loc1-event">
+          <div class="loc1-event-label">Misa de XV A&ntilde;os</div>
+          <div class="loc1-event-title">Ceremonia</div>
+          <div class="loc1-event-venue">Templo de San Juan de Dios</div>
+          <div class="loc1-event-time">16:00</div>
+        </div>
+        <div class="loc1-vdiv"></div>
+        <div class="loc1-event">
+          <div class="loc1-event-label">Cena &amp; Fiesta</div>
+          <div class="loc1-event-title">Recepci&oacute;n</div>
+          <div class="loc1-event-venue">Quinta Los Tres Reyes</div>
+          <div class="loc1-event-time">18:00</div>
+        </div>
+      </div>
+
+      <div class="loc1-cta">
+        <a class="btn" href="https://maps.app.goo.gl/nwrBvUygBFSPZTY76?g_st=ic" target="_blank">
+          C&oacute;mo Llegar &middot; Recepci&oacute;n
+        </a>
+      </div>
+
+      <iframe class="loc1-map"
+        src="https://maps.google.com/maps?q=Quinta+Los+Tres+Reyes+Durango+Mexico&output=embed&hl=es"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section class="rv cal-c" id="scal">
+    <div class="eyebrow">No lo olvides</div>
+    <h2 class="sec-title">Gu&aacute;rdalo</h2>
+    <p>Agrega el evento a tu calendario</p>
+    <a class="btn" id="gcalBtn" href="#" target="_blank">A&ntilde;adir a Google Calendar</a>
+  </section>
+
+  <div class="orn rv">
+    <svg viewBox="0 0 300 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="20" x2="96" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="0" y1="23" x2="88" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+      <path d="M96 21.5 Q104 7 116 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <path d="M122 21.5 L126.5 15.5 L131 21.5 L126.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M150 6 L165 21.5 L150 37 L135 21.5 Z" fill="rgba(90,158,118,0.09)" stroke="#5A9E76" stroke-width="1.05" opacity="0.50"/>
+      <circle cx="150" cy="21.5" r="4.5" fill="rgba(168,212,181,0.22)" stroke="#5A9E76" stroke-width="0.7" opacity="0.58"/>
+      <path d="M169 21.5 L173.5 15.5 L178 21.5 L173.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M184 21.5 Q196 7 204 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <line x1="204" y1="20" x2="300" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="212" y1="23" x2="300" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+    </svg>
+  </div>
+
+  <!-- ITINERARIO -->
+  <section id="siti">
+    <div class="eyebrow eyebrow-sky rv">Programa del D&iacute;a</div>
+    <h2 class="sec-title rv">Itinerario</h2>
+    <div class="itv3">
+      <div class="itv3-track"></div>
+      <div class="itv3-glow" id="itvGlow"></div>
+
+      <div class="itv3-item rv">
+        <div class="itv3-gem"></div>
+        <div class="itv3-time">16:00</div>
+        <div class="itv3-ev">Misa de XV A&ntilde;os</div>
+      </div>
+
+      <div class="itv3-item rv">
+        <div class="itv3-gem itv3-gem-sky"></div>
+        <div class="itv3-time">17:30</div>
+        <div class="itv3-ev">Recepci&oacute;n de Invitados</div>
+      </div>
+
+      <div class="itv3-item rv">
+        <div class="itv3-gem itv3-gem-rosa"></div>
+        <div class="itv3-time">18:30</div>
+        <div class="itv3-ev">Protocolo</div>
+      </div>
+
+      <div class="itv3-item rv">
+        <div class="itv3-gem itv3-gem-sky"></div>
+        <div class="itv3-time">20:00</div>
+        <div class="itv3-ev">Cena</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="orn rv">
+    <svg viewBox="0 0 300 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="20" x2="96" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="0" y1="23" x2="88" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+      <path d="M96 21.5 Q104 7 116 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <path d="M122 21.5 L126.5 15.5 L131 21.5 L126.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M150 6 L165 21.5 L150 37 L135 21.5 Z" fill="rgba(90,158,118,0.09)" stroke="#5A9E76" stroke-width="1.05" opacity="0.50"/>
+      <circle cx="150" cy="21.5" r="4.5" fill="rgba(168,212,181,0.22)" stroke="#5A9E76" stroke-width="0.7" opacity="0.58"/>
+      <path d="M169 21.5 L173.5 15.5 L178 21.5 L173.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M184 21.5 Q196 7 204 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <line x1="204" y1="20" x2="300" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="212" y1="23" x2="300" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+    </svg>
+  </div>
+
+  <!-- DRESS CODE V2 — Editorial oscuro -->
+  <section class="rv" id="sdc">
+    <div class="dc2-wrap">
+      <div class="dc2-eyebrow">Etiqueta</div>
+      <div class="dc2-title">Dress Code</div>
+      <div class="dc2-formal">Formal</div>
+      <div class="dc2-strip">
+        <span style="background:#1C2E24;"></span>
+        <span style="background:#5A9E76;"></span>
+        <span style="background:#A8D4B5;"></span>
+        <span style="background:#E8E0C4;"></span>
+      </div>
+      <div class="dc2-palette" id="swatches">
+        <div class="dc2-swatch"><div class="ds-circle" style="background:#1C2E24;"></div><div class="ds-name">Verde Oscuro</div></div>
+        <div class="dc2-swatch"><div class="ds-circle" style="background:#5A9E76;"></div><div class="ds-name">Verde Salvia</div></div>
+        <div class="dc2-swatch"><div class="ds-circle" style="background:#E8E0C4;"></div><div class="ds-name">Champagne</div></div>
+        <div class="dc2-swatch"><div class="ds-circle" style="background:#FFFFFF;border:1px solid rgba(255,255,255,0.25);"></div><div class="ds-name">Blanco</div></div>
+      </div>
+      <div class="dc2-avoid">
+        <p>Se les pide amablemente evitar<br>colores neón o llamativos</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="orn rv">
+    <svg viewBox="0 0 300 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="20" x2="96" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="0" y1="23" x2="88" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+      <path d="M96 21.5 Q104 7 116 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <path d="M122 21.5 L126.5 15.5 L131 21.5 L126.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M150 6 L165 21.5 L150 37 L135 21.5 Z" fill="rgba(90,158,118,0.09)" stroke="#5A9E76" stroke-width="1.05" opacity="0.50"/>
+      <circle cx="150" cy="21.5" r="4.5" fill="rgba(168,212,181,0.22)" stroke="#5A9E76" stroke-width="0.7" opacity="0.58"/>
+      <path d="M169 21.5 L173.5 15.5 L178 21.5 L173.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M184 21.5 Q196 7 204 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <line x1="204" y1="20" x2="300" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="212" y1="23" x2="300" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+    </svg>
+  </div>
+
+  <!-- FAMILIA V2 -->
+  <section id="sfam">
+    <div class="eyebrow eyebrow-rosa rv">Con la Bendici&oacute;n de</div>
+    <h2 class="sec-title rv">Mi Familia</h2>
+    <div class="fam2">
+
+      <div class="fam2-group rv">
+        <div class="fam2-medallion">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="fam2-role">Mis Padres</div>
+        <div class="fam2-names">
+          Laura Lorena L&oacute;pez Lara
+          <span class="fam2-amp">&amp;</span>
+          Jes&uacute;s Jaime P&eacute;rez Fuentes
+        </div>
+      </div>
+
+      <div class="fam2-divider rv">
+        <svg viewBox="0 0 100 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="13" x2="32" y2="13" stroke="#5A9E76" stroke-width="0.7" opacity="0.32"/>
+          <path d="M32 13 Q38 5 44 13" stroke="#5A9E76" stroke-width="0.8" fill="none" opacity="0.44"/>
+          <path d="M50 4 L57 13 L50 22 L43 13 Z" fill="rgba(90,158,118,0.10)" stroke="#5A9E76" stroke-width="0.9" opacity="0.48"/>
+          <circle cx="50" cy="13" r="3" fill="rgba(168,212,181,0.22)" stroke="#5A9E76" stroke-width="0.6" opacity="0.55"/>
+          <path d="M56 13 Q62 5 68 13" stroke="#5A9E76" stroke-width="0.8" fill="none" opacity="0.44"/>
+          <line x1="68" y1="13" x2="100" y2="13" stroke="#5A9E76" stroke-width="0.7" opacity="0.32"/>
+        </svg>
+      </div>
+
+      <div class="fam2-group rv" style="border-top:none;">
+        <div class="fam2-medallion" style="background:linear-gradient(135deg,rgba(123,196,160,0.14),rgba(184,224,203,0.26));border-color:rgba(123,196,160,0.32);">
+          <svg viewBox="0 0 24 24" style="stroke:#7BC4A0"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="fam2-role" style="color:var(--sky)">Mi Padrino</div>
+        <div class="fam2-names">
+          Arnoldo
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="orn rv">
+    <svg viewBox="0 0 300 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="20" x2="96" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="0" y1="23" x2="88" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+      <path d="M96 21.5 Q104 7 116 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <path d="M122 21.5 L126.5 15.5 L131 21.5 L126.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M150 6 L165 21.5 L150 37 L135 21.5 Z" fill="rgba(90,158,118,0.09)" stroke="#5A9E76" stroke-width="1.05" opacity="0.50"/>
+      <circle cx="150" cy="21.5" r="4.5" fill="rgba(168,212,181,0.22)" stroke="#5A9E76" stroke-width="0.7" opacity="0.58"/>
+      <path d="M169 21.5 L173.5 15.5 L178 21.5 L173.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M184 21.5 Q196 7 204 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <line x1="204" y1="20" x2="300" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="212" y1="23" x2="300" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+    </svg>
+  </div>
+
+  <!-- GALERIA V2 — Rueda de la Fortuna -->
+  <section id="sgal">
+    <div class="eyebrow eyebrow-rosa rv">Momentos</div>
+    <h2 class="sec-title rv">Galer&iacute;a</h2>
+
+    <div class="wgal-scene">
+      <div class="wgal-rim"></div>
+      <div class="wgal-hub"></div>
+
+      <div class="wgal-wheel" id="photoWheel">
+
+        <div class="wgal-item" style="--i:0">
+          <div class="wgal-spoke"></div>
+          <div class="wgal-card">
+            <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/38cafce0-704c-423e-bb3b-f5c10c82814b/1777872315659-0.jpeg" alt="Ana Sofía" loading="lazy"/>
+          </div>
+        </div>
+
+        <div class="wgal-item" style="--i:1">
+          <div class="wgal-spoke"></div>
+          <div class="wgal-card">
+            <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/38cafce0-704c-423e-bb3b-f5c10c82814b/1777872359758-0.jpeg" alt="Ana Sofía" loading="lazy"/>
+          </div>
+        </div>
+
+        <div class="wgal-item" style="--i:2">
+          <div class="wgal-spoke"></div>
+          <div class="wgal-card">
+            <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/38cafce0-704c-423e-bb3b-f5c10c82814b/1777872391118-0.jpeg" alt="Ana Sofía" loading="lazy"/>
+          </div>
+        </div>
+
+        <div class="wgal-item" style="--i:3">
+          <div class="wgal-spoke"></div>
+          <div class="wgal-card">
+            <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/38cafce0-704c-423e-bb3b-f5c10c82814b/1777872412430-0.jpeg" alt="Ana Sofía" loading="lazy"/>
+          </div>
+        </div>
+
+        <div class="wgal-item" style="--i:4">
+          <div class="wgal-spoke"></div>
+          <div class="wgal-card">
+            <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/38cafce0-704c-423e-bb3b-f5c10c82814b/1777872513728-0.jpeg" alt="Ana Sofía" loading="lazy"/>
+          </div>
+        </div>
+
+        <div class="wgal-item" style="--i:5">
+          <div class="wgal-spoke"></div>
+          <div class="wgal-card">
+            <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/38cafce0-704c-423e-bb3b-f5c10c82814b/1777872610189-0.jpeg" alt="Ana Sofía" loading="lazy"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="wgal-hint rv">↕ Scrollea para girar la rueda</div>
+  </section>
+
+  <div class="orn rv">
+    <svg viewBox="0 0 300 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="20" x2="96" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="0" y1="23" x2="88" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+      <path d="M96 21.5 Q104 7 116 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <path d="M122 21.5 L126.5 15.5 L131 21.5 L126.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M150 6 L165 21.5 L150 37 L135 21.5 Z" fill="rgba(90,158,118,0.09)" stroke="#5A9E76" stroke-width="1.05" opacity="0.50"/>
+      <circle cx="150" cy="21.5" r="4.5" fill="rgba(168,212,181,0.22)" stroke="#5A9E76" stroke-width="0.7" opacity="0.58"/>
+      <path d="M169 21.5 L173.5 15.5 L178 21.5 L173.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M184 21.5 Q196 7 204 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <line x1="204" y1="20" x2="300" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="212" y1="23" x2="300" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+    </svg>
+  </div>
+
+  <!-- MESA DE REGALOS -->
+  <section class="rv" id="sgifts">
+    <div class="eyebrow">Con Cari&ntilde;o</div>
+    <h2 class="sec-title">Mesa de Regalos</h2>
+    <div class="gift2-wrap">
+
+      <!-- Liverpool -->
+      <div class="gift2-card rv">
+        <div class="gift2-top">
+          <div class="gift2-icon-wrap" style="background:linear-gradient(135deg,#D42B2B,#A81F1F);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.53 15.51 0 12.35 0c-1.7 0-3.23.62-4.35 1.64L6 3H4C2.34 3 1 4.34 1 6s1.34 3 3 3h.27l2.47 4.27C6.27 14.03 6 14.98 6 16c0 2.21 1.79 4 4 4s4-1.79 4-4c0-.72-.19-1.39-.52-1.98L15.59 9H16c1.93 0 3.5-1.4 3.93-3.24L20 6zm-6.17 9.36C13.28 15.8 12.68 16 12 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2c0 .49-.17.93-.45 1.28l-.72-1.28z"/></svg>
+          </div>
+          <div class="gift2-name">Liverpool</div>
+          <div class="gift2-sub">Mesa de Regalos</div>
+        </div>
+        <div class="gift2-divider"></div>
+        <div class="gift2-bottom">
+          <a class="btn-copy" href="http://mesaderegalos.liverpool.com.mx/milistaderegalos/52001728" target="_blank" style="text-decoration:none;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+            Ver Lista de Regalos
+          </a>
+        </div>
+      </div>
+
+      <!-- CLABE Banamex -->
+      <div class="gift2-card rv">
+        <div class="gift2-top">
+          <div class="gift2-icon-wrap" style="background:linear-gradient(135deg,#5A9E76,#3A7555);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M11.5 2L2 7v2h20V7L11.5 2zm-7 9v8H7v-8H4.5zm4.5 0v8h2v-8H9zm4 0v8h2v-8h-2zm4.5 0v8H19v-8h-1.5zM2 21v2h20v-2H2z"/></svg>
+          </div>
+          <div class="gift2-name">Transferencia</div>
+          <div class="gift2-sub">Banamex &middot; Laura L&oacute;pez</div>
+          <div class="gift2-acct-label">CLABE Interbancaria</div>
+          <div class="gift2-account" id="accountNum">002190900790087011</div>
+        </div>
+        <div class="gift2-divider"></div>
+        <div class="gift2-bottom">
+          <button class="btn-copy" id="copyBtn" onclick="copyAccount()">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copiar CLABE
+          </button>
+        </div>
+      </div>
+
+      <div class="gift2-envelope rv">
+        <div class="gift2-env-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8FBE9E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="gift2-env-title">Lluvia de Sobres</div>
+        <div class="gift2-env-sub">Tu presencia es el regalo<br>m&aacute;s valioso para Ana Sof&iacute;a</div>
+        <div class="gift2-env-sep"></div>
+        <div class="gift2-env-desc">
+          En el sal&oacute;n encontrar&aacute;s un buz&oacute;n decorado<br>
+          especialmente para ese d&iacute;a &mdash; con mucho cari&ntilde;o<br>
+          puedes depositar ah&iacute; tu sobre.<br>
+          Cada gesto llena de alegr&iacute;a el coraz&oacute;n de Sof&iacute;a.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="orn rv">
+    <svg viewBox="0 0 300 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="20" x2="96" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="0" y1="23" x2="88" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+      <path d="M96 21.5 Q104 7 116 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <path d="M122 21.5 L126.5 15.5 L131 21.5 L126.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M150 6 L165 21.5 L150 37 L135 21.5 Z" fill="rgba(90,158,118,0.09)" stroke="#5A9E76" stroke-width="1.05" opacity="0.50"/>
+      <circle cx="150" cy="21.5" r="4.5" fill="rgba(168,212,181,0.22)" stroke="#5A9E76" stroke-width="0.7" opacity="0.58"/>
+      <path d="M169 21.5 L173.5 15.5 L178 21.5 L173.5 27.5 Z" fill="#8FBE9E" fill-opacity="0.40" stroke="#8FBE9E" stroke-width="0.4" opacity="0.5"/>
+      <path d="M184 21.5 Q196 7 204 21.5" stroke="#5A9E76" stroke-width="0.95" fill="none" opacity="0.46"/>
+      <line x1="204" y1="20" x2="300" y2="20" stroke="#5A9E76" stroke-width="0.85" opacity="0.34"/>
+      <line x1="212" y1="23" x2="300" y2="23" stroke="#5A9E76" stroke-width="0.38" opacity="0.16"/>
+    </svg>
+  </div>
+
+  <!-- RSVP -->
+  <section class="rv" id="srsvp">
+    <div class="eyebrow eyebrow-sky">Confirma tu Asistencia</div>
+    <h2 class="sec-title">R.S.V.P.</h2>
+    <div class="rsvp-card">
+      <div class="rsvp-deadline">Fecha l&iacute;mite: 20 de Junio de 2026</div>
+      <div class="rsvp-passes-badge" id="rsvpBadge">2 Pases</div>
+      <div id="rsvpNamesWrap"></div>
+      <button class="btn-rsvp" id="rsvpSubmitBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Confirmar Asistencia
+      </button>
+      <div class="rsvp-error" id="rsvpError"></div>
+      <div class="rsvp-success" id="rsvpSuccess">
+        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" style="margin:0 auto;display:block;">
+          <circle cx="27" cy="27" r="25.5" stroke="#5A9E76" stroke-width="1.5" opacity="0.38"/>
+          <path d="M15 27l9 9 15-17" stroke="#5A9E76" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div style="font-family:'Great Vibes',cursive;font-size:40px;background:linear-gradient(135deg,#5A9E76,#A8D4B5,#3A7555);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:10px 0 8px;">¡Gracias!</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(30,51,40,.68);line-height:1.65;margin:0;">Tu asistencia ha sido confirmada.<br>¡Nos vemos en los XV de Sof&iacute;a!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="fn">Ana Sof&iacute;a</div>
+    <div class="fd">27 &middot; Junio &middot; MMXXVI</div>
+  </footer>
+
+</div>
+
+<!-- LIGHTBOX GALERIA -->
+<div id="gal-lb">
+  <div id="gal-lb-bg"></div>
+  <img id="gal-lb-img" src="" alt="Foto galería">
+  <button id="gal-lb-close" aria-label="Cerrar">✕</button>
+</div>
+
+<!-- MUSICA -->
+<button class="music-fab" id="musicFab" aria-label="Reproducir musica">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+</button>
+<audio id="bgAudio" loop preload="none">
+  <source src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/musica/sofia-xv.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+window.scrollTo(0,0);
+history.scrollRestoration='manual';
+gsap.registerPlugin(ScrollTrigger);
+
+/* ENVELOPE */
+(function(){
+  var envScreen=document.getElementById('envelope-screen');
+  var envVideo=document.getElementById('env-video');
+  var envFlash=document.getElementById('env-flash');
+  var hint=document.getElementById('env-hint');
+  var opened=false;
+
+  gsap.timeline()
+    .to(envScreen,{opacity:1,duration:1.0,ease:'power2.out',delay:0.3})
+    .to(hint,{opacity:1,duration:0.9,ease:'power2.out'},'-=0.4');
+
+  function revealInvitation(){
+    document.querySelector('.wrap').style.visibility='visible';
+    launchPage();
+    gsap.to(envFlash,{opacity:0,duration:1.0,ease:'power2.out',
+      onComplete:function(){envFlash.style.display='none';}});
+  }
+
+  function openEnvelope(){
+    if(opened)return; opened=true;
+    gsap.to(hint,{opacity:0,duration:0.15});
+    gsap.to(envScreen,{opacity:0,duration:0.35,ease:'power2.in',
+      onComplete:function(){
+        envScreen.style.display='none';
+        envVideo.style.display='block';
+        envVideo.play().catch(function(){
+          envVideo.style.display='none';
+          gsap.set(envFlash,{opacity:1});
+          revealInvitation();
+        });
+      }
+    });
+  }
+
+  envVideo.addEventListener('ended',function(){
+    gsap.set(envFlash,{opacity:1});
+    gsap.to(envVideo,{opacity:0,duration:0.4,ease:'power2.in',
+      onComplete:function(){
+        envVideo.style.display='none';
+        revealInvitation();
+      }
+    });
+  });
+
+  envScreen.addEventListener('click',openEnvelope);
+  envScreen.addEventListener('touchstart',function(e){e.preventDefault();openEnvelope();},{passive:false});
+}());
+
+/* LAUNCH */
+function launchPage(){
+  gsap.timeline({defaults:{ease:'power2.out'}})
+    .to('#hNm',{opacity:1,y:0,duration:1.8,ease:'power3.out'})
+    .to('#hSb',{opacity:1,y:0,duration:1.4},'-=1');
+  initScrollReveal();
+  initItinerary();
+  initDressCode();
+  initWheelGallery();
+}
+
+/* SCROLL REVEAL */
+function initScrollReveal(){
+  document.querySelectorAll('.rv').forEach(function(el){
+    gsap.fromTo(el,{y:36,opacity:0},{y:0,opacity:1,duration:1.3,ease:'power2.out',
+      scrollTrigger:{trigger:el,start:'top 88%'}});
+  });
+}
+
+/* ITINERARIO */
+function initItinerary(){
+  var glow=document.getElementById('itvGlow');
+  var section=document.getElementById('siti');
+  var items=document.querySelectorAll('.itv3-item');
+  if(!glow||!section)return;
+
+  ScrollTrigger.create({
+    trigger:section,
+    start:'top 58%',
+    end:'bottom 42%',
+    scrub:1.8,
+    onUpdate:function(self){
+      var track=section.querySelector('.itv3-track');
+      if(!track)return;
+      var h=track.offsetHeight-55;
+      glow.style.top=(self.progress*h)+'px';
+    }
+  });
+
+  items.forEach(function(item,i){
+    var gem=item.querySelector('.itv3-gem');
+    gsap.fromTo(gem,
+      {scale:0,opacity:0},
+      {scale:1,opacity:1,duration:0.6,ease:'back.out(2.8)',
+       scrollTrigger:{trigger:item,start:'top 86%',once:true}});
+    gsap.fromTo([item.querySelector('.itv3-time'),item.querySelector('.itv3-ev')],
+      {y:14,opacity:0},
+      {y:0,opacity:1,duration:0.8,ease:'power2.out',stagger:0.08,
+       scrollTrigger:{trigger:item,start:'top 86%',once:true}});
+  });
+}
+
+/* DRESS CODE */
+function initDressCode(){
+  ScrollTrigger.create({trigger:'#sdc',start:'top 82%',once:true,
+    onEnter:function(){gsap.fromTo('#swatches .dot',{scale:0,opacity:0},{scale:1,opacity:1,duration:.9,stagger:.18,ease:'back.out(2)'});}});
+}
+
+/* COUNTDOWN V2 */
+(function(){
+  var target=new Date('2026-06-27T16:00:00-06:00').getTime();
+  var C=314.16;
+  var ringsAnimated=false;
+  function setRing(type,fraction){
+    var off=C*(1-Math.min(fraction,1));
+    document.querySelectorAll('[data-ring="'+type+'"]').forEach(function(el){
+      el.setAttribute('stroke-dashoffset',off);
+    });
+  }
+  function tick(){
+    var d=target-Date.now();if(d<=0)return;
+    var days=Math.floor(d/86400000);
+    var hours=Math.floor(d%86400000/3600000);
+    var mins=Math.floor(d%3600000/60000);
+    var secs=Math.floor(d%60000/1000);
+    document.getElementById('cdD').textContent=String(days).padStart(3,'0');
+    document.getElementById('cdH').textContent=String(hours).padStart(2,'0');
+    document.getElementById('cdM').textContent=String(mins).padStart(2,'0');
+    document.getElementById('cdS').textContent=String(secs).padStart(2,'0');
+    if(ringsAnimated){
+      setRing('d',Math.min(days/365,1));
+      setRing('h',hours/24);
+      setRing('m',mins/60);
+      setRing('s',secs/60);
+    }
+  }
+  tick();setInterval(tick,1000);
+  ScrollTrigger.create({trigger:'#scd',start:'top 82%',once:true,onEnter:function(){
+    ringsAnimated=true;
+    gsap.fromTo('.cd2-rv',{scale:0.6,opacity:0},{scale:1,opacity:1,duration:1,stagger:0.15,ease:'back.out(2)'});
+    var d=target-Date.now();
+    var days=Math.floor(d/86400000),hours=Math.floor(d%86400000/3600000),
+        mins=Math.floor(d%3600000/60000),secs=Math.floor(d%60000/1000);
+    var targets=[
+      {ring:'d',frac:Math.min(days/365,1)},
+      {ring:'h',frac:hours/24},
+      {ring:'m',frac:mins/60},
+      {ring:'s',frac:secs/60}
+    ];
+    targets.forEach(function(t,i){
+      var rings=document.querySelectorAll('[data-ring="'+t.ring+'"]');
+      rings.forEach(function(el){
+        gsap.fromTo(el,
+          {attr:{'stroke-dashoffset':C}},
+          {attr:{'stroke-dashoffset':C*(1-t.frac)},duration:1.8,delay:i*0.15+0.3,ease:'power2.out'});
+      });
+    });
+    gsap.fromTo('.cd2-container',{y:30,opacity:0},{y:0,opacity:1,duration:1.2,ease:'power3.out'});
+  }});
+})();
+
+/* GOOGLE CALENDAR */
+(function(){
+  var t=encodeURIComponent('XV Años de Ana Sofía');
+  var d=encodeURIComponent('Misa de XV Años: Templo de San Juan de Dios 16:00 hrs | Recepción: Quinta Los Tres Reyes 18:00 hrs - Durango');
+  var l=encodeURIComponent('Quinta Los Tres Reyes, Durango, México');
+  document.getElementById('gcalBtn').href=
+    'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+t+'&dates=20260627T220000Z/20260628T050000Z&details='+d+'&location='+l;
+})();
+
+/* COPIAR CLABE */
+function copyAccount(){
+  var num=document.getElementById('accountNum').textContent;
+  navigator.clipboard.writeText(num.replace(/\s/g,'')).then(function(){
+    var btn=document.getElementById('copyBtn');
+    var orig=btn.innerHTML;
+    btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copiado!';
+    btn.style.background='rgba(90,158,118,0.2)';
+    setTimeout(function(){btn.innerHTML=orig;btn.style.background='';},2500);
+  }).catch(function(){
+    var el=document.createElement('textarea');el.value=num.replace(/\s/g,'');
+    document.body.appendChild(el);el.select();document.execCommand('copy');el.remove();
+  });
+}
+
+/* RSVP */
+(function(){
+  var SB_URL='https://bsjoelxktbvlavfoozhk.supabase.co';
+  var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJzam9lbHhrdGJ2bGF2Zm9vemhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2NDYwNTIsImV4cCI6MjA5MzIyMjA1Mn0.jZlKZuH-KXlBLl5njadkKPmOemrj9cdm92nVZxBjFHI';
+
+  var params=new URLSearchParams(window.location.search);
+  var pases=Math.min(5,Math.max(1,parseInt(params.get('pases')||'2',10)));
+
+  var badge=document.getElementById('rsvpBadge');
+  badge.textContent=pases+(pases===1?' Pase':' Pases');
+
+  var wrap=document.getElementById('rsvpNamesWrap');
+  for(var i=1;i<=pases;i++){
+    var row=document.createElement('div');
+    row.className='rsvp-name-row';
+    var num=document.createElement('div');
+    num.className='rsvp-name-num';
+    num.textContent=i;
+    var inp=document.createElement('input');
+    inp.type='text';
+    inp.id='rsvpN'+i;
+    inp.placeholder=pases>1?'Nombre #'+i:'Nombre completo';
+    inp.autocomplete='off';
+    row.appendChild(num);
+    row.appendChild(inp);
+    wrap.appendChild(row);
+  }
+
+  var submitBtn=document.getElementById('rsvpSubmitBtn');
+  submitBtn.addEventListener('click',function(){
+    var nombres=[];
+    var missing=-1;
+    for(var j=1;j<=pases;j++){
+      var v=document.getElementById('rsvpN'+j).value.trim();
+      if(!v&&missing<0)missing=j;
+      nombres.push(v||'');
+    }
+    if(missing>0){
+      showErr('Por favor escribe el nombre #'+missing);
+      document.getElementById('rsvpN'+missing).focus();
+      return;
+    }
+    clearErr();
+
+    var lista=nombres.map(function(n,i){return (i+1)+'. '+n;}).join('\n');
+    var msg='Hola! Confirmo mi asistencia a los XV de Ana Sofía 🌿\n\nAsistentes:\n'+lista+'\n\nNos vemos pronto!';
+    window.location.href='https://wa.me/526181194060?text='+encodeURIComponent(msg);
+
+    submitBtn.disabled=true;
+    submitBtn.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9" stroke-dasharray="28" stroke-dashoffset="0"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.9s" repeatCount="indefinite"/></circle></svg> Enviando…';
+
+    fetch(SB_URL+'/rest/v1/rsvp_xv_sofia',{
+      method:'POST',
+      headers:{
+        'apikey':SB_KEY,
+        'Authorization':'Bearer '+SB_KEY,
+        'Content-Type':'application/json',
+        'Prefer':'return=minimal'
+      },
+      body:JSON.stringify({pases:pases,nombres:nombres})
+    }).then(function(res){
+      if(!res.ok)return res.text().then(function(t){throw new Error(t);});
+      showSuccess();
+    }).catch(function(err){
+      submitBtn.disabled=false;
+      submitBtn.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Confirmar Asistencia';
+      showErr('Hubo un error. Por favor intenta de nuevo.');
+      console.error(err);
+    });
+  });
+
+  function showSuccess(){
+    var wrap2=document.getElementById('rsvpNamesWrap');
+    var btn=document.getElementById('rsvpSubmitBtn');
+    var bdg=document.getElementById('rsvpBadge');
+    var suc=document.getElementById('rsvpSuccess');
+    gsap.to([wrap2,btn,bdg],{opacity:0,y:-8,duration:0.35,ease:'power2.in',stagger:0.05,onComplete:function(){
+      wrap2.style.display='none';
+      btn.style.display='none';
+      bdg.style.display='none';
+      gsap.set(suc,{autoAlpha:1});
+      gsap.fromTo(suc,{opacity:0,y:18},{opacity:1,y:0,duration:0.7,ease:'back.out(1.2)'});
+    }});
+  }
+  function showErr(msg){
+    var el=document.getElementById('rsvpError');
+    el.textContent=msg;
+    gsap.fromTo(el,{opacity:0,x:-6},{opacity:1,x:0,duration:0.28});
+  }
+  function clearErr(){
+    document.getElementById('rsvpError').textContent='';
+  }
+})();
+
+/* GALERIA — Rueda de la Fortuna */
+function initWheelGallery(){
+  var wheel=document.getElementById('photoWheel');
+  if(!wheel)return;
+
+  ScrollTrigger.create({trigger:'#sgal',start:'top 85%',once:true,onEnter:function(){
+    gsap.fromTo(wheel,{rotation:-15,opacity:0},{rotation:0,opacity:1,duration:1.4,ease:'power3.out'});
+    gsap.fromTo('.wgal-hint',{opacity:0,y:10},{opacity:1,y:0,duration:1.2,delay:0.8,ease:'power2.out'});
+  }});
+
+  gsap.to(wheel,{
+    rotation:360,
+    ease:'none',
+    scrollTrigger:{
+      trigger:'#sgal',
+      start:'top 70%',
+      end:'bottom top',
+      scrub:2
+    }
+  });
+
+  gsap.ticker.add(function(){
+    var rot=gsap.getProperty(wheel,'rotation')||0;
+    var norm=((rot%360)+360)%360;
+    document.querySelectorAll('.wgal-item').forEach(function(item,i){
+      var itemAngle=((i*60-norm)%360+360)%360;
+      var dist=Math.min(itemAngle,360-itemAngle);
+      var scale=dist<50?gsap.utils.mapRange(0,50,1.08,1,dist):1;
+      var shadow=dist<60?
+        '0 14px 38px rgba(58,117,85,0.32)':
+        '0 5px 18px rgba(58,117,85,0.12)';
+      var card=item.querySelector('.wgal-card');
+      card.style.boxShadow=shadow;
+      card.style.transform='scale('+scale+')';
+    });
+  });
+}
+
+/* LIGHTBOX GALERIA */
+(function(){
+  var lb=document.getElementById('gal-lb');
+  var lbImg=document.getElementById('gal-lb-img');
+  var lbClose=document.getElementById('gal-lb-close');
+  var isOpen=false;
+
+  function openLb(src,originEl){
+    if(isOpen)return;
+    isOpen=true;
+    lbImg.src=src;
+    var r=originEl.getBoundingClientRect();
+    var ox=(r.left+r.right)/2-window.innerWidth/2;
+    var oy=(r.top+r.bottom)/2-window.innerHeight/2;
+    gsap.set(lb,{autoAlpha:0});
+    gsap.set(lbImg,{scale:0.15,x:ox,y:oy,opacity:0});
+    gsap.to(lb,{autoAlpha:1,duration:0.28,ease:'power2.out'});
+    gsap.to(lbImg,{scale:1,x:0,y:0,opacity:1,duration:0.48,ease:'back.out(1.3)'});
+  }
+
+  function closeLb(){
+    if(!isOpen)return;
+    isOpen=false;
+    gsap.to(lbImg,{scale:0.85,opacity:0,duration:0.22,ease:'power2.in'});
+    gsap.to(lb,{autoAlpha:0,duration:0.28,ease:'power2.in',onComplete:function(){
+      lbImg.src='';
+    }});
+  }
+
+  document.querySelectorAll('.wgal-card').forEach(function(card){
+    card.addEventListener('click',function(e){
+      e.stopPropagation();
+      openLb(card.querySelector('img').src,card);
+    });
+  });
+
+  lb.addEventListener('click',closeLb);
+  lbClose.addEventListener('click',function(e){e.stopPropagation();closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+})();
+
+/* MUSICA */
+var fab=document.getElementById('musicFab'),audio=document.getElementById('bgAudio');
+var playing=false;
+fab.addEventListener('click',function(){
+  playing=!playing;
+  if(playing){audio.play().catch(function(){});fab.style.background='#3A7555';}
+  else{audio.pause();fab.style.background='';}
+});
+</script>
+</body>
+</html>
